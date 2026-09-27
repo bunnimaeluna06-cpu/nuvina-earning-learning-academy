@@ -1,0 +1,5168 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="NUVINA Earning Learning Academy — learn, play, earn, and grow together.">
+<meta name="theme-color" content="#160b25">
+<title>NUVINA EARNING LEARNING ACADEMY</title>  <style>  
+*{box-sizing:border-box}  
+  
+body{  
+  margin:0;  
+  font-family:Arial,sans-serif;  
+  background:linear-gradient(180deg,#160b25,#29133d,#170b25);  
+  color:#fff;  
+}  
+  
+.app{  
+  width:100%;  
+  max-width:430px;  
+  margin:auto;  
+  min-height:100vh;  
+  padding:15px;  
+}  
+  
+.header{  
+  text-align:center;  
+  padding:18px 10px;  
+}  
+  
+.logo{  
+  font-size:30px;  
+  font-weight:900;  
+  color:#ffd85a;  
+}  
+  
+.subtitle{  
+  font-size:14px;  
+  font-weight:800;  
+  margin-top:4px;  
+}  
+  
+.tagline{  
+  font-size:11px;  
+  color:#e8cbed;  
+  margin-top:6px;  
+}  
+  
+.card{  
+  background:#241334;  
+  border:1px solid #633a76;  
+  border-radius:20px;  
+  padding:18px;  
+  margin-bottom:14px;  
+  box-shadow:0 8px 25px #0005;  
+}  
+  
+.screen{display:none}  
+.screen.active{display:block}  
+  
+.center{text-align:center}  
+  
+h2{  
+  color:#ffd85a;  
+  margin:5px 0 18px;  
+  font-size:21px;  
+}  
+  
+h3{color:#ffd85a}  
+  
+input,select{  
+  width:100%;  
+  padding:14px;  
+  margin:7px 0;  
+  border-radius:12px;  
+  border:1px solid #75478c;  
+  background:#170d22;  
+  color:#fff;  
+  outline:none;  
+  font-size:16px;  
+}  
+  
+input[readonly]{  
+  opacity:.85;  
+  border-color:#ffd85a;  
+}  
+  
+button{  
+  width:100%;  
+  padding:14px;  
+  margin:6px 0;  
+  border:0;  
+  border-radius:13px;  
+  background:linear-gradient(90deg,#8d3cc2,#b54ad1);  
+  color:#fff;  
+  font-weight:900;  
+  cursor:pointer;  
+}  
+  
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+:focus-visible{
+  outline:3px solid #ffd85a;
+  outline-offset:3px;
+}
+
+button.back{background:#452452}  
+button.danger{background:#8b2635}  
+  
+.menu-grid{  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  gap:8px;  
+}  
+  
+.menu-grid .full{  
+  grid-column:1/3;  
+}  
+  
+/* DASHBOARD */  
+  
+.dashboard-card{  
+  padding:18px;  
+}  
+  
+/* PROFILE FRAME */  
+  
+.profile-frame{  
+  position:relative;  
+  width:100%;  
+  padding:20px 15px 18px;  
+  margin-bottom:0;  
+  border-radius:25px;  
+  background:  
+    linear-gradient(145deg,#35194c,#241334 55%,#3a1b50);  
+  border:2px solid #ffd85a;  
+  box-shadow:  
+    0 0 0 3px #7d45a0,  
+    0 0 0 6px #3b1d50,  
+    0 0 25px #ffd85a55,  
+    inset 0 0 25px #0005;  
+  overflow:hidden;  
+}  
+  
+.profile-frame:before{  
+  content:"";  
+  position:absolute;  
+  top:0;  
+  left:0;  
+  right:0;  
+  height:4px;  
+  background:linear-gradient(  
+    90deg,  
+    #8d3cc2,  
+    #ffd85a,  
+    #b54ad1,  
+    #ffd85a,  
+    #8d3cc2  
+  );  
+}  
+  
+.profile-frame:after{  
+  content:"✦  ✧  ✦";  
+  position:absolute;  
+  top:7px;  
+  right:12px;  
+  color:#ffd85a;  
+  font-size:13px;  
+  letter-spacing:3px;  
+}  
+  
+.profile-avatar-frame{  
+  position:relative;  
+  width:100px;  
+  height:100px;  
+  margin:4px auto 12px;  
+  border:2px solid #ffd85a;  
+  outline:2px solid #b54ad1;  
+  outline-offset:3px;  
+  border-radius:50%;  
+  padding:5px;  
+  background:linear-gradient(  
+    135deg,  
+    #ffd85a,  
+    #b54ad1,  
+    #ffd85a  
+  );  
+  box-shadow:  
+    0 0 15px #ffd85a88,  
+    0 0 25px #b54ad166;  
+}  
+
+.profile-avatar-frame:after{  
+  content:"✦";  
+  position:absolute;  
+  top:0;  
+  right:0;  
+  color:#ffd85a;  
+  font-size:18px;  
+  text-shadow:0 0 8px #ffd85a;  
+}  
+  
+.profile-avatar{  
+  width:100%;  
+  height:100%;  
+  border-radius:50%;  
+  display:flex;  
+  align-items:center;  
+  justify-content:center;  
+  background:  
+    radial-gradient(circle at 35% 30%,#6d3788,#21102e 70%);  
+  border:3px solid #241334;  
+  font-size:48px;  
+}  
+  
+.profile-name{  
+  font-size:21px;  
+  font-weight:900;  
+  color:#fff;  
+  margin-top:4px;  
+}  
+  
+.profile-username{  
+  font-size:13px;  
+  color:#dcb9e8;  
+  margin-top:4px;  
+}  
+  
+.profile-userid{  
+  font-size:12px;  
+  color:#ffd85a;  
+  font-weight:900;  
+  margin-top:5px;  
+}  
+  
+.profile-status{  
+  display:inline-block;  
+  margin-top:9px;  
+  padding:6px 12px;  
+  border-radius:20px;  
+  background:#16834c;  
+  color:#fff;  
+  font-size:11px;  
+  font-weight:900;  
+  box-shadow:0 0 10px #16834c66;  
+}  
+  
+.profile-status.pending{  
+  background:#8a6420;  
+}  
+  
+.profile-mini-info{  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  gap:8px;  
+  margin-top:15px;  
+}  
+  
+.profile-mini-box{  
+  background:#170d22aa;  
+  border:1px solid #704481;  
+  border-radius:12px;  
+  padding:9px 5px;  
+}  
+  
+.profile-mini-label{  
+  font-size:9px;  
+  color:#cfa8db;  
+  font-weight:900;  
+  letter-spacing:.5px;  
+}  
+  
+.profile-mini-value{  
+  font-size:16px;  
+  color:#ffd85a;  
+  font-weight:900;  
+  margin-top:3px;  
+}  
+  
+.balance-number{  
+  font-size:40px;  
+  color:#ffd85a;  
+  font-weight:900;  
+}  
+  
+.php{  
+  color:#7ff0b0;  
+  font-size:22px;  
+  font-weight:900;  
+}  
+  
+.referral-box{  
+  background:#321a45;  
+  border-radius:14px;  
+  padding:13px;  
+  margin-top:12px;  
+}  
+  
+.referral-link{  
+  word-break:break-all;  
+  font-size:12px;  
+  color:#ffd85a;  
+  padding:10px;  
+  background:#180c22;  
+  border-radius:9px;  
+}  
+  
+.user-id-box{  
+  background:#180c22;  
+  border:1px solid #ffd85a;  
+  border-radius:10px;  
+  padding:11px;  
+  margin-top:8px;  
+  color:#ffd85a;  
+  font-weight:900;  
+  word-break:break-all;  
+}  
+  
+.user-box{  
+  background:#301a42;  
+  border:1px solid #704481;  
+  border-radius:15px;  
+  padding:14px;  
+  margin:10px 0;  
+}  
+  
+.user-box strong{color:#ffd85a}
+
+.admin-user-details{
+  margin:8px 0 14px;
+  text-align:left;
+}
+
+.admin-user-detail{
+  padding:9px 0;
+  border-bottom:1px solid #633a76;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+
+.admin-user-detail strong{
+  display:block;
+  margin-bottom:3px;
+  color:#ffd85a;
+}
+
+.status{  
+  display:inline-block;  
+  padding:5px 9px;  
+  border-radius:8px;  
+  background:#704481;  
+  font-size:11px;  
+  font-weight:bold;  
+}  
+  
+.activated{background:#16834c}  
+.pending{background:#8a6420}  
+  
+.small{  
+  font-size:12px;  
+  color:#d8bddf;  
+}  
+  
+.notice{  
+  padding:12px;  
+  border-radius:12px;  
+  background:#382047;  
+  margin:8px 0;  
+  font-size:13px;  
+}  
+  
+.success-notice{  
+  border:1px solid #65f09d;  
+  color:#dffff0;  
+}  
+  
+.error-notice{  
+  border:1px solid #ff7181;  
+  color:#ffd9de;  
+}  
+  
+/* FORGOT PASSWORD / OTP */  
+  
+.channel-grid{  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  gap:8px;  
+  margin:10px 0;  
+}  
+  
+.channel-option{  
+  display:flex;  
+  flex-direction:column;  
+  align-items:center;  
+  justify-content:center;  
+  gap:5px;  
+  padding:14px 8px;  
+  border:1px solid #704481;  
+  border-radius:14px;  
+  background:#321a45;  
+  cursor:pointer;  
+  text-align:center;  
+  color:#fff;  
+}  
+  
+.channel-option input{  
+  width:auto;  
+  margin:0 0 4px;  
+}  
+  
+.channel-option span{  
+  font-size:26px;  
+}  
+  
+.channel-option strong{  
+  color:#ffd85a;  
+  font-size:12px;  
+}  
+  
+.channel-option small{  
+  color:#cfa8db;  
+  font-size:10px;  
+}  
+  
+.otp-input{  
+  text-align:center;  
+  font-size:25px;  
+  letter-spacing:6px;  
+  font-weight:900;  
+}  
+  
+.demo-otp{  
+  padding:14px;  
+  margin:10px 0;  
+  border:1px dashed #ffd85a;  
+  border-radius:12px;  
+  background:#170d22;  
+  color:#e8cbed;  
+  text-align:center;  
+}  
+  
+.demo-otp span{  
+  color:#ffd85a;  
+  font-size:26px;  
+  font-weight:900;  
+  letter-spacing:4px;  
+}  
+  
+.timer{  
+  font-size:60px;  
+  color:#ffd85a;  
+  font-weight:900;  
+  margin:25px 0;  
+}  
+  
+.game-question{  
+  font-size:28px;  
+  font-weight:900;  
+  margin:25px 0;  
+  white-space:pre-line;  
+}  
+  
+.game-answer-input{  
+  width:100%;  
+  text-align:center;  
+  font-size:20px;  
+  font-weight:900;  
+}  
+  
+.game-option{  
+  background:#352047;  
+  border:1px solid #74468b;  
+}  
+  
+.correct{  
+  color:#65f09d;  
+  font-size:30px;  
+  font-weight:900;  
+}  
+  
+.incorrect{  
+  color:#ff7181;  
+  font-size:30px;  
+  font-weight:900;  
+}  
+  
+.result-answer{  
+  color:#ffd85a;  
+  font-size:17px;  
+  font-weight:900;  
+}  
+  
+hr{  
+  border:0;  
+  border-top:1px solid #633a76;  
+  margin:14px 0;  
+}  
+  
+/* ABOUT */  
+  
+.about-box{  
+  background:linear-gradient(  
+    145deg,  
+    #321846,  
+    #241334  
+  );  
+  border:1px solid #704481;  
+  border-radius:16px;  
+  padding:15px;  
+  margin:10px 0;  
+  line-height:1.7;  
+  font-size:13px;  
+}  
+  
+.about-box strong{  
+  color:#ffd85a;  
+}  
+  
+.about-title{  
+  color:#ffd85a;  
+  font-size:16px;  
+  font-weight:900;  
+  margin-bottom:7px;  
+}  
+  
+.membership-box{  
+  background:#170d22;  
+  border:2px solid #ffd85a;  
+  border-radius:18px;  
+  padding:17px;  
+  margin:14px 0;  
+  box-shadow:0 0 18px #ffd85a22;  
+}  
+  
+.membership-name{  
+  color:#ffd85a;  
+  font-size:20px;  
+  font-weight:900;  
+}  
+  
+.membership-subtitle{  
+  color:#e8cbed;  
+  font-size:12px;  
+  margin-top:5px;  
+}  
+  
+.membership-list{  
+  text-align:left;  
+  margin-top:12px;  
+  line-height:1.8;  
+  font-size:13px;  
+}  
+  
+.membership-list div{  
+  padding:4px 0;  
+}  
+  
+.about-note{  
+  color:#cfa8db;  
+  font-size:11px;  
+  line-height:1.6;  
+}  
+  
+/* DAILY BONUS */  
+  
+.bonus-status{  
+  margin:15px 0;  
+  padding:12px;  
+  border-radius:12px;  
+  background:#321b45;  
+  color:#f5d8ff;  
+  font-weight:700;  
+}  
+  
+.bonus-timer{  
+  margin:12px 0;  
+  color:#ffd85a;  
+  font-size:18px;  
+  font-weight:900;  
+}  
+  
+/* INVITE */  
+  
+.invite-count-box{  
+  background:#321a45;  
+  border:1px solid #704481;  
+  border-radius:16px;  
+  padding:15px;  
+  margin:14px 0;  
+}  
+  
+.invite-count{  
+  font-size:42px;  
+  font-weight:900;  
+  color:#ffd85a;  
+}  
+  
+/* INVITE BALANCE */  
+  
+.invite-balance-box{  
+  background:  
+    linear-gradient(145deg,#3a1c50,#241334);  
+  border:2px solid #ffd85a;  
+  border-radius:18px;  
+  padding:17px;  
+  margin:14px 0;  
+  box-shadow:  
+    0 0 18px #ffd85a22,  
+    inset 0 0 18px #0004;  
+}  
+  
+.invite-balance-title{  
+  color:#ffd85a;  
+  font-size:15px;  
+  font-weight:900;  
+  margin-bottom:10px;  
+}  
+  
+.invite-balance-points{  
+  font-size:36px;  
+  color:#ffd85a;  
+  font-weight:900;  
+}  
+  
+.invite-balance-php{  
+  font-size:25px;  
+  color:#7ff0b0;  
+  font-weight:900;  
+  margin-top:5px;  
+}  
+  
+.invite-stat-grid{  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  gap:8px;  
+  margin-top:12px;  
+}  
+  
+.invite-stat{  
+  background:#170d22;  
+  border:1px solid #704481;  
+  border-radius:12px;  
+  padding:11px 6px;  
+}  
+  
+.invite-stat-label{  
+  color:#cfa8db;  
+  font-size:9px;  
+  font-weight:900;  
+}  
+  
+.invite-stat-value{  
+  color:#ffd85a;  
+  font-size:17px;  
+  font-weight:900;  
+  margin-top:4px;  
+}  
+  
+/* PAYOUT */  
+  
+.payout-info{  
+  background:#321a45;  
+  border:1px solid #704481;  
+  border-radius:14px;  
+  padding:14px;  
+  margin:10px 0;  
+  line-height:1.7;  
+}  
+  
+.payout-balance{  
+  font-size:24px;  
+  color:#7ff0b0;  
+  font-weight:900;  
+}  
+  
+.payout-points{  
+  color:#ffd85a;  
+  font-weight:900;  
+}  
+  
+/* PAYOUT BALANCE SELECTOR */  
+  
+.payout-balance-grid{  
+  display:grid;  
+  grid-template-columns:1fr 1fr;  
+  gap:8px;  
+  margin:10px 0 14px;  
+}  
+  
+.payout-balance-card{  
+  width:100%;  
+  min-height:115px;  
+  margin:0;  
+  padding:13px 8px;  
+  border:2px solid #704481;  
+  border-radius:16px;  
+  background:#321a45;  
+  color:#fff;  
+  box-shadow:none;  
+}  
+  
+.payout-balance-card.active{  
+  border-color:#ffd85a;  
+  background:  
+    linear-gradient(145deg,#4a245f,#2a153b);  
+  box-shadow:0 0 15px #ffd85a33;  
+}  
+  
+.payout-balance-card .balance-card-title{  
+  color:#e8cbed;  
+  font-size:11px;  
+  font-weight:900;  
+}  
+  
+.payout-balance-card .balance-card-value{  
+  display:block;  
+  margin-top:8px;  
+  color:#7ff0b0;  
+  font-size:21px;  
+  font-weight:900;  
+}  
+  
+.payout-balance-card .balance-card-points{  
+  display:block;  
+  margin-top:6px;  
+  color:#ffd85a;  
+  font-size:11px;  
+  font-weight:900;  
+}  
+  
+.payout-selected-label{  
+  color:#ffd85a;  
+  font-size:13px;  
+  font-weight:900;  
+  text-align:center;  
+  margin:8px 0;  
+}  
+  
+.payout-rule{  
+  padding:12px;  
+  border-radius:12px;  
+  background:#170d22;  
+  border:1px solid #704481;  
+  color:#e8cbed;  
+  font-size:12px;  
+  line-height:1.6;  
+  text-align:center;  
+  margin:10px 0;  
+}  
+  
+.payout-deduction-box{  
+  padding:13px;  
+  margin:10px 0;  
+  border-radius:13px;  
+  background:#2e193e;  
+  border:1px solid #704481;  
+  line-height:1.8;  
+  font-size:12px;  
+}  
+  
+.payout-deduction-box strong{  
+  color:#ffd85a;  
+}  
+  
+.payout-message{  
+  padding:12px;  
+  border-radius:12px;  
+  margin-top:10px;  
+  display:none;  
+  text-align:center;  
+  font-size:13px;  
+  font-weight:900;  
+  line-height:1.7;  
+}  
+  
+.payout-message.success{  
+  display:block;  
+  border:1px solid #65f09d;  
+  background:#123522;  
+  color:#dffff0;  
+}  
+  
+.payout-message.error{  
+  display:block;  
+  border:1px solid #ff7181;  
+  background:#401a24;  
+  color:#ffd9de;  
+}  
+  
+/* CALCULATOR */  
+  
+.calculator-box{  
+  margin-top:12px;  
+  padding:15px;  
+  background:#160c20;  
+  border:1px solid #75478c;  
+  border-radius:18px;  
+}  
+  
+.calculator-display{  
+  width:100%;  
+  height:58px;  
+  background:#0d0712;  
+  border:1px solid #6c4380;  
+  border-radius:12px;  
+  color:#ffd85a;  
+  font-size:25px;  
+  font-weight:900;  
+  text-align:right;  
+  padding:10px;  
+  margin-bottom:10px;  
+}  
+  
+.calc-grid{  
+  display:grid;  
+  grid-template-columns:repeat(4,1fr);  
+  gap:7px;  
+}  
+  
+.calc-grid button{  
+  margin:0;  
+  padding:15px 5px;  
+  font-size:18px;  
+  background:#39204a;  
+}  
+  
+.calc-grid .operator{background:#8d3cc2}  
+.calc-grid .equals{background:#b54ad1}  
+.calc-grid .clear{background:#8b2635}  
+</style>  </head>  <body>  <div class="app">  <header class="header">  
+<div class="logo">👑 NUVINA</div>  
+<div class="subtitle">EARNING LEARNING ACADEMY</div>  
+<div class="tagline">Learn • Play • Earn • Grow Together</div>  
+</header>  <!-- HOME -->  <section id="home" class="screen active">  
+<div class="card center">  <h2>🏠 WELCOME</h2>  <div class="notice">  
+<strong>NUVINA EARNING LEARNING ACADEMY</strong>  
+<br><br>  
+Learn • Play • Earn • Grow Together  
+</div>  <button onclick="showScreen('login')">  
+🔐 LOGIN  
+</button>  <button onclick="openSignup()">  
+📝 SIGN UP  
+</button>  <button onclick="openForgotPassword()">  
+🔑 FORGOT PASSWORD  
+</button>  <button onclick="showScreen('adminLogin')">  
+👑 ADMIN PANEL  
+</button>  </div>  
+</section>  <!-- LOGIN -->  <section id="login" class="screen">  
+<div class="card">  <h2>🔐 LOGIN</h2>  <input id="loginUsername" placeholder="Username">  
+<input id="loginPassword" type="password" placeholder="Password">  <button onclick="loginUser()">LOGIN</button>
+
+<button class="back" onclick="showScreen('home')">  
+← BACK TO MENU  
+</button>  </div>  
+</section>  <!-- SIGN UP -->  <section id="signup" class="screen">  
+<div class="card">  <h2>📝 CREATE ACCOUNT</h2>  <div id="referralNotice" class="notice" style="display:none"></div>  <input id="signupName" placeholder="Full Name">  
+<input id="signupUsername" placeholder="Username">  
+<input id="signupUpline" placeholder="Upline USER_ID" autocomplete="off">  <div id="uplineValidation" class="small">  
+Enter a valid Upline USER_ID.  
+</div>  <input id="signupContact" placeholder="Contact Number">  
+<input id="signupEmail" type="email" placeholder="Email / Gmail">  
+<input id="signupPassword" type="password" placeholder="Password">  
+<input id="signupConfirm" type="password" placeholder="Confirm Password">  <div class="notice">  
+<strong>MEMBERSHIP INFORMATION</strong>  
+<br><br>  
+Create your Nuvina account to access the learning activities, games, daily bonus, referral features, points balance and other available member features.  
+</div>  <button onclick="registerUser()">CREATE ACCOUNT</button>
+
+<button class="back" onclick="showScreen('home')">  
+← BACK TO MENU  
+</button>  </div>  
+</section>  <!-- SIGN UP SUCCESS -->  <section id="signupSuccess" class="screen">  
+<div class="card center">  <h2>🎉 ACCOUNT CREATED</h2>  <div id="signupSuccessDetails" class="notice success-notice">  
+Your account has been successfully created.  
+<br><br>  
+Please wait for admin activation.  
+</div>  <button onclick="showScreen('login')">LOGIN</button>
+
+<button class="back" onclick="showScreen('home')">  
+BACK TO MENU  
+</button>  </div>  
+</section>  <!-- DASHBOARD -->  <section id="dashboard" class="screen">  <div class="card center dashboard-card">  <h2>🏠 DASHBOARD</h2>  <div class="profile-frame">  <div class="profile-avatar-frame">  
+<div class="profile-avatar">👤</div>  
+</div>  <div id="profileName" class="profile-name">User</div>  
+<div id="profileUsername" class="profile-username">@username</div>  
+<div id="profileUserId" class="profile-userid">USER_ID: -</div>  
+<div id="profileStatus" class="profile-status">● ACTIVATED</div>  <div class="profile-mini-info">  <div class="profile-mini-box">  
+<div class="profile-mini-label">POINTS</div>  
+<div id="profilePoints" class="profile-mini-value">0</div>  
+</div>  <div class="profile-mini-box">  
+<div class="profile-mini-label">BALANCE</div>  
+<div id="profileBalance" class="profile-mini-value">₱0.00</div>  
+</div>  </div>  
+</div>  
+</div>  <div class="card">  <div class="menu-grid">  <button onclick="showDailyBonus()">🎁 DAILY BONUS</button>
+<button onclick="showTasks()">🎮 TASKS / PLAY</button>
+<button onclick="showInviteToday()">👥 INVITE TODAY</button>
+<button onclick="showScreen('payout')">💸 PAYOUT</button>
+<button onclick="showScreen('account')">👤 ACCOUNT</button>
+<button onclick="showScreen('balance')">💰 MY BALANCE</button>
+<button onclick="showScreen('about')">ℹ️ ABOUT / MEMBERSHIP</button>
+<button onclick="showScreen('rules')">📋 RULES</button>
+
+<button class="full" onclick="showScreen('support')">  
+🆘 SUPPORT  
+</button>  </div>  
+</div>  <button class="back" onclick="logoutUser()">LOGOUT</button>
+
+</section>  <!-- ABOUT -->  <section id="about" class="screen">  
+<div class="card">  <h2>ℹ️ ABOUT NUVINA</h2>  <div class="about-box">  
+<div class="about-title">👑 NUVINA EARNING LEARNING ACADEMY</div>  
+<strong>Learn • Play • Earn • Grow Together</strong>  
+<br><br>  
+Nuvina Earning Learning Academy is a browser-based learning and rewards platform designed to provide members with interactive learning activities, simple games, referral features and a points-based reward system.  
+</div>  <div class="membership-box center">  <div class="membership-name">💎 NUVINA MEMBERSHIP</div>  <div class="membership-subtitle">  
+Member access to available academy features  
+</div>  <div class="membership-list">  <div>✅ Personal Member Account</div>  
+<div>✅ Learning & Game Activities</div>  
+<div>✅ Math Practice</div>  
+<div>✅ Daily Bonus</div>  
+<div>✅ Referral Program</div>  
+<div>✅ Points & Balance Tracking</div>  
+<div>✅ Payout Request Feature</div>  
+<div>✅ Member Account Information</div>  
+<div>✅ Academy Rules & Support</div>  </div>  
+</div>  <div class="about-box">  
+<div class="about-title">📚 LEARN</div>  
+Members can participate in available learning activities and practice exercises.  
+</div>  <div class="about-box">  
+<div class="about-title">🎮 PLAY</div>  
+Members can access available interactive activities such as Math, CAPTCHA, Color Emoji, Animal Emoji Guess, Logo Guess and Guess the Flag.  
+</div>  <div class="about-box">  
+<div class="about-title">🎁 DAILY BONUS</div>  
+Members may claim the available daily bonus when eligible.  
+<br><br>  
+<strong>Current Demo Bonus: +100 Points</strong>  
+</div>  <div class="about-box">  
+<div class="about-title">👥 REFERRAL PROGRAM</div>  
+Members can share their personal referral link with friends.  
+<br><br>  
+<strong>Current Demo Referral Reward: +400 Points</strong>  
+<br><br>  
+<strong>Invite Balance:</strong>  
+400 Points = ₱20.00 per successful referral.  
+</div>  <div class="about-box">  
+<div class="about-title">💰 POINTS SYSTEM</div>  
+<strong>Current Demo Conversion:</strong>  
+<br><br>  
+1 Point = ₱0.05  
+<br>  
+20 Points = ₱1.00  
+<br>  
+1000 Points = $1.00 = ₱50.00  
+</div>  <div class="about-box">  
+<div class="about-title">💸 PAYOUT</div>  <strong>REGULAR BALANCE:</strong> Minimum ₱300
+<br>
+<strong>REGULAR PAYOUT FEE:</strong> 10%
+<br>
+<strong>INVITE BALANCE:</strong> Minimum ₱400
+<br>
+<strong>INVITE BALANCE MAXIMUM:</strong> No maximum
+<br><br>
+
+Payment Methods:
+GCash, Maya or PayPal
+
+</div>  <div class="about-box">  
+<div class="about-title">🔐 ACCOUNT ACTIVATION</div>  
+Newly registered accounts are initially marked as <strong>Pending</strong>.  
+<br><br>  
+Upon activation, the current demo system provides +50 welcome points.  
+</div>  <div class="about-box">  
+<div class="about-title">📌 IMPORTANT</div>  
+Nuvina is presented here as a demo/browser-based rewards and learning system. Points, rewards, membership features and payout settings shown in this website are controlled by the website's current configuration.  
+</div>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- BALANCE -->  <section id="balance" class="screen">  
+<div class="card center">  <h2>💰 MY BALANCE</h2>  <div id="balancePoints" class="balance-number">0</div>  
+<div>POINTS</div>  <hr>  <div id="balancePHP" class="php">₱0.00</div>  
+<div class="small">PHP BALANCE</div>  <hr>  <div id="balanceUSD" class="small">$0.000</div>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- DAILY BONUS -->  <section id="dailyBonus" class="screen">  
+<div class="card center">  <h2>🎁 DAILY BONUS</h2>  <div class="notice">  
+Claim Bonus:
+<strong>+100 POINTS</strong>  
+</div>  <div id="dailyBonusStatus" class="bonus-status">  
+🎁 You can claim your bonus now.  
+</div>  <button id="dailyBonusButton" onclick="claimDailyBonus()">  
+🎁 CLAIM BONUS +100  
+</button>  <div id="dailyBonusTimer" class="bonus-timer"></div>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- INVITE TODAY -->  <section id="inviteToday" class="screen">  
+<div class="card center">  <h2>👥 INVITE TODAY</h2>  <div class="user-id-box">  
+YOUR USER_ID:  
+<br>  
+<span id="inviteUserId">-</span>  
+</div>  <div class="referral-box">  <h3>🔗 YOUR REFERRAL LINK</h3>  <div id="inviteReferralLink" class="referral-link">-</div>  <button onclick="copyMyReferralLink()">  
+📋 COPY REFERRAL LINK  
+</button>  </div>  <div class="invite-count-box">  <div id="inviteTodayCount" class="invite-count">0</div>  
+<div class="profile-mini-label">INVITE TODAY</div>  </div>  <div class="invite-balance-box">  <div class="invite-balance-title">  
+💰 INVITE BALANCE ₱  
+</div>  <div id="inviteBalancePoints" class="invite-balance-points">  
+0 POINTS  
+</div>  <div id="inviteBalancePHP" class="invite-balance-php">  
+₱0.00  
+</div>  <div class="invite-stat-grid">  <div class="invite-stat">  
+<div class="invite-stat-label">  
+TOTAL SUCCESSFUL INVITES  
+</div>  
+<div id="inviteTotalCount" class="invite-stat-value">0</div>  
+</div>  <div class="invite-stat">  
+<div class="invite-stat-label">  
+REWARD PER INVITE  
+</div>  
+<div class="invite-stat-value">+400 POINTS</div>  
+</div>  </div>  
+</div>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- TASKS -->  <section id="tasks" class="screen">  
+<div class="card">  <h2>🎮 TASKS / PLAY</h2>  <button onclick="startGame('math')">🧮 MATH</button>
+<button onclick="startGame('captcha')">🔐 CAPTCHA</button>
+<button onclick="startGame('color')">🌈 COLOR EMOJI</button>
+<button onclick="startGame('animal')">🐶 ANIMAL EMOJI GUESS</button>
+<button onclick="startGame('logo')">🖼️ LOGO</button>
+<button onclick="startGame('flag')">🏳️ GUESS THE FLAG</button>
+
+<button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- GAME WAIT -->  <section id="gameWait" class="screen">  
+<div class="card center">  <h2 id="waitGameTitle">🧮 MATH</h2>  <div class="timer" id="gameTimer">15</div>  <p>Please wait...</p>  
+<br>  
+<p>NEW RANDOM QUESTION</p>  <button class="back" onclick="stopGameAndTasks()">  
+← BACK TO CATEGORY  
+</button>  </div>  
+</section>  <!-- GAME QUESTION -->  <section id="gameQuestion" class="screen">  
+<div class="card center">  <h2 id="gameTitle">🧮 MATH</h2>  <div id="gameQuestionText" class="game-question"></div>  <div id="gameOptions"></div>  <button id="calculatorButton" onclick="toggleCalculator()" style="display:none">  
+🧮 CALCULATOR  
+</button>  <div id="calculatorBox" class="calculator-box" style="display:none">  <h3>🧮 CALCULATOR</h3>  <input id="calculatorDisplay" class="calculator-display" readonly value="0">  <div class="calc-grid">  <button class="clear" onclick="calcClear()">C</button>
+<button onclick="calcPress('(')">(</button>
+<button onclick="calcPress(')')">)</button>
+<button class="operator" onclick="calcPress('/')">÷</button>
+
+<button onclick="calcPress('7')">7</button>
+<button onclick="calcPress('8')">8</button>
+<button onclick="calcPress('9')">9</button>
+<button class="operator" onclick="calcPress('*')">×</button>
+
+<button onclick="calcPress('4')">4</button>
+<button onclick="calcPress('5')">5</button>
+<button onclick="calcPress('6')">6</button>
+<button class="operator" onclick="calcPress('-')">−</button>
+
+<button onclick="calcPress('1')">1</button>
+<button onclick="calcPress('2')">2</button>
+<button onclick="calcPress('3')">3</button>
+<button class="operator" onclick="calcPress('+')">+</button>
+
+<button onclick="calcPress('0')">0</button>
+<button onclick="calcPress('.')">.</button>
+<button onclick="calcBackspace()">⌫</button>
+<button class="equals" onclick="calcEquals()">=</button>
+
+</div>  
+</div>  <button class="back" onclick="stopGameAndTasks()">  
+← BACK TO CATEGORY  
+</button>  </div>  
+</section>  <!-- GAME RESULT -->  <section id="gameResult" class="screen">  
+<div class="card center">  <h2>🎮 GAME RESULT</h2>  <div id="resultPoints" class="balance-number">0</div>  
+<div>POINTS</div>  <div id="resultUsername" class="small">{username}</div>  <hr>  <div id="resultStatus"></div>  
+<div id="resultEarned" class="notice"></div>  <button onclick="nextGameQuestion()">➡️ NEXT</button>
+
+<button class="back" onclick="stopGameAndTasks()">  
+← BACK TO CATEGORY  
+</button>  </div>  
+</section>  <!-- PAYOUT -->  <section id="payout" class="screen">  
+<div class="card">  <h2>💸 PAYOUT</h2>  <div class="payout-balance-grid">  <button
+type="button"
+id="regularPayoutCard"
+class="payout-balance-card active"
+onclick="selectPayoutBalance('regular')"
+
+> 
+
+<span class="balance-card-title">  
+BALANCE ₱  
+</span>  <span
+id="payoutRegularBalance"
+class="balance-card-value"
+
+> 
+
+₱0.00
+</span>
+
+<span
+id="payoutRegularPoints"
+class="balance-card-points"
+
+> 
+
+0 POINTS
+</span>
+
+</button>  <button
+type="button"
+id="invitePayoutCard"
+class="payout-balance-card"
+onclick="selectPayoutBalance('invite')"
+
+> 
+
+<span class="balance-card-title">  
+INVITE BALANCE ₱  
+</span>  <span
+id="payoutInviteBalance"
+class="balance-card-value"
+
+> 
+
+₱0.00
+</span>
+
+<span
+id="payoutInvitePointsCard"
+class="balance-card-points"
+
+> 
+
+0 POINTS
+</span>
+
+</button>  </div>  <input
+type="hidden"
+id="payoutBalanceType"
+value="regular"
+
+> 
+
+<div id="payoutSelectedLabel" class="payout-selected-label">  
+SELECTED: BALANCE ₱  
+</div>  <div id="payoutRuleText" class="payout-rule">  
+<strong>BALANCE ₱</strong><br>  
+Minimum ₱300.<br>  
+Maximum: ALL BALANCE.  
+<br>  
+10% payout deduction applies.  
+</div>  <div class="payout-info">  <div>AVAILABLE BALANCE</div>  <div id="payoutBalance" class="payout-balance">  
+₱0.00  
+</div>  <div>  
+BALANCE POINTS:  
+<span id="payoutPoints" class="payout-points">  
+0  
+</span>  
+</div>  <div id="payoutInvitePointsLine" style="display:none;margin-top:5px;">  
+INVITE BALANCE POINTS:  
+<span id="payoutInvitePoints" class="payout-points">  
+0  
+</span>  
+</div>  </div>  <div class="payout-info">  <strong>📅 PAYOUT SCHEDULE</strong>
+
+<br><br>
+
+Wednesday:
+<strong>7:00 AM – 9:00 PM</strong>
+
+<br>  Saturday:
+<strong>7:00 AM – 9:00 PM</strong>
+
+<br><br>
+
+<strong>REGULAR BALANCE:</strong>
+Minimum ₱300 • 10% deduction
+
+<br>  <strong>INVITE BALANCE:</strong>
+Minimum ₱400 • No maximum • No deduction
+
+</div>  <select id="payoutMethod">  <option value="">  
+Select Payment Method  
+</option>  <option value="GCash">GCash</option>  
+<option value="Maya">Maya</option>  
+<option value="PayPal">PayPal</option>  </select>  <input
+id="payoutAccount"
+placeholder="Account Number / Email"
+
+> 
+
+<select id="payoutMaximum">  <option value="">  
+Select Maximum Payout  
+</option>  <option value="all">ALL BALANCE</option>  </select>  <input
+id="payoutAmount"
+type="number"
+min="300"
+step="0.05"
+placeholder="Payout Amount ₱"
+
+> 
+
+<button onclick="requestPayout()">  
+💸 REQUEST PAYOUT  
+</button>  <div id="payoutMessage" class="payout-message"></div>
+<div id="memberPayoutHistory"></div>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- ACCOUNT -->  <section id="account" class="screen">  
+<div class="card">  <h2>👤 MY ACCOUNT</h2>  <div class="user-box">  
+<strong>USER_ID</strong>  
+<div id="accountUserId"></div>  
+</div>  <div class="user-box">  
+<strong>Full Name</strong>  
+<div id="accountName"></div>  
+</div>  <div class="user-box">  
+<strong>Username</strong>  
+<div id="accountUsername"></div>  
+</div>  <div class="user-box">  
+<strong>Upline USER_ID</strong>  
+<div id="accountUpline"></div>  
+</div>  <div class="user-box">  
+<strong>Contact</strong>  
+<div id="accountContact"></div>  
+</div>  <div class="user-box">  
+<strong>Email / Gmail</strong>  
+<div id="accountEmail"></div>  
+</div>  <div class="user-box">  
+<strong>Status</strong>  
+<div id="accountStatus"></div>  
+</div>  <div class="user-box">  
+<strong>Points</strong>  
+<div id="accountPoints"></div>  
+</div>  <div class="referral-box">  <h3>🔗 MY REFERRAL LINK</h3>  <div id="accountReferralLink" class="referral-link">-</div>  <button onclick="copyMyReferralLink()">  
+📋 COPY REFERRAL LINK  
+</button>  </div>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- RULES -->  <section id="rules" class="screen">  
+<div class="card">  <h2>📋 RULES</h2>  <div class="notice">  <strong>USER_ID / REFERRAL</strong>
+
+<br><br>
+
+Every member receives a unique USER_ID.
+
+<br>  The USER_ID is used for referral links and Upline identification.
+
+</div>  <div class="notice">  <strong>POINT CONVERSION</strong>
+
+<br><br>
+
+1 Point = ₱0.05
+<br>
+20 Points = ₱1.00
+<br>
+1000 Points = $1.00 = ₱50.00
+
+</div>  <div class="notice">  <strong>🎮 GAME RULES</strong>
+
+<br><br>
+
+Correct Answer = +1 Point
+<br>
+Incorrect Answer = 0 Point
+
+<br><br>
+
+Each new question = 15-second wait.
+
+</div>  <div class="notice">  <strong>🎁 DAILY BONUS</strong>
+
+<br><br>
+
+Claim Bonus = +100 Points
+<br>
+You can claim again after 24 hours.
+
+</div>  <div class="notice">  <strong>👥 INVITE TODAY</strong>
+
+<br><br>
+
+Successful Referral = +400 Points
+<br>
+400 Points = ₱20.00
+
+</div>  <div class="notice">  <strong>💸 PAYOUT</strong>
+
+<br><br>
+
+<strong>REGULAR BALANCE:</strong>
+Minimum = ₱300
+
+<br>  Regular payout deduction = <strong>10%</strong>
+
+<br>  Example:
+₱300 request → ₱270 net payout
+
+<br><br>
+
+<strong>INVITE BALANCE:</strong>
+Minimum = ₱400
+
+<br>  Invite Balance Maximum:
+<strong>NO MAXIMUM</strong>
+
+<br>  Invite payout deduction:
+<strong>0%</strong>
+
+<br><br>
+
+Wednesday: 7AM–9PM
+<br>
+Saturday: 7AM–9PM
+
+</div>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- SUPPORT -->  <section id="support" class="screen">  
+<div class="card center">  <h2>🆘 SUPPORT</h2>  <div class="notice">  
+Need help?  
+<br>  
+Contact Nuvina Support.  
+</div>  <button onclick="window.open('https://t.me/NuvinaBot','_blank')">  
+💬 TELEGRAM SUPPORT  
+</button>  <button class="back" onclick="showScreen('dashboard')">  
+← BACK TO DASHBOARD  
+</button>  </div>  
+</section>  <!-- FORGOT PASSWORD -->  <section id="forgot" class="screen">  <div class="card">  <div id="forgotStep1">  <h2>🔑 FORGOT PASSWORD</h2>  <div class="channel-grid">  <label class="channel-option">  <input
+type="radio"
+name="resetChannel"
+value="email"
+checked
+
+> 
+
+<span>📧</span>
+
+<strong>GMAIL / EMAIL</strong>
+
+<small>Check Inbox / Spam / Junk</small>
+
+</label>  <label class="channel-option">  <input
+type="radio"
+name="resetChannel"
+value="phone"
+
+> 
+
+<span>📱</span>
+
+<strong>PHONE +63</strong>
+
+<small>Philippines number</small>
+
+</label>  </div>  <input
+id="forgotIdentifier"
+placeholder="Enter Email / Gmail"
+
+> 
+
+<div id="forgotIdentifierHint" class="small">  
+Example: yourname@gmail.com  
+</div>  <button onclick="startForgotOtp()">📨 SEND OTP</button>
+
+<button class="back" onclick="showScreen('home')">  
+← BACK TO MENU  
+</button>  </div>  <div id="forgotStep2" style="display:none">  <h2>🔐 OTP VERIFICATION</h2>  <div id="forgotOtpDestination" class="notice"></div>  <input
+id="forgotOtp"
+class="otp-input"
+inputmode="numeric"
+maxlength="6"
+placeholder="ENTER 6-DIGIT OTP"
+
+> 
+
+<div id="demoOtpBox" class="demo-otp"></div>  <div id="forgotOtpTimer" class="bonus-timer"></div>  <button onclick="verifyForgotOtp()">✅ VERIFY OTP</button>
+
+<button onclick="resendForgotOtp()">🔄 RESEND OTP</button>
+
+<button class="back" onclick="showForgotStep(1)">  
+← BACK  
+</button>  </div>  <div id="forgotStep3" style="display:none">  <h2>🔑 RESET PASSWORD</h2>  <div class="notice success-notice">  ✅ OTP verified successfully.
+
+<br><br>
+
+Create your new password.
+
+</div>  <input
+id="forgotNewPassword"
+type="password"
+placeholder="New Password"
+
+> 
+
+<input
+id="forgotConfirmPassword"
+type="password"
+placeholder="Confirm New Password"
+
+> 
+
+<button onclick="resetForgotPassword()">  
+🔐 RESET PASSWORD  
+</button>  <button class="back" onclick="showForgotStep(2)">  
+← BACK  
+</button>  </div>  </div>  
+</section>  <!-- ADMIN LOGIN -->  <section id="adminLogin" class="screen">  
+<div class="card">  <h2>👑 ADMIN LOGIN</h2>  <input
+id="adminUsername"
+type="email"
+placeholder="Admin Username"
+autocomplete="username"
+
+> 
+
+<input
+id="adminPassword"
+type="password"
+placeholder="Admin Password"
+autocomplete="current-password"
+
+> 
+
+<button onclick="adminLogin()">ADMIN LOGIN</button>
+
+<button class="back" onclick="showScreen('home')">  
+← BACK TO MENU  
+</button>  </div>  
+</section>  <!-- ADMIN PANEL -->  <section id="adminPanel" class="screen">  
+<div class="card">  <h2>👑 ADMIN ACTIVATION</h2>  <div class="notice">  
+Admin Activation / Balance Management  
+</div>  <input
+id="adminSearchUsername"
+placeholder="Search Username / USER_ID"
+oninput="renderAdminUsers()"
+
+> 
+
+<h3>📋 PENDING / MEMBER LIST</h3>  <div id="adminUsers"></div>  <button class="back" onclick="showScreen('home')">  
+LOGOUT ADMIN  
+</button>  </div>  
+</section>  <!-- ACTIVATION SUCCESS -->  <section id="activationSuccess" class="screen">  
+<div class="card center">  <h2>🎉 ACTIVATION SUCCESSFUL</h2>  <div id="activationSuccessDetails" class="notice success-notice">  Successfully activated, congrats 😊
+
+<br><br>
+
+Welcome bonus:
+<strong>+50 POINTS</strong>
+
+</div>  <button onclick="showScreen('adminPanel');renderAdminUsers()">  
+← BACK TO ADMIN PANEL  
+</button>  </div>  
+</section>  </div>  <script>  
+  
+/* =========================  
+   DATABASE  
+========================= */  
+  
+const STORAGE_KEY="nuvinaUsers";
+
+function loadUsers(){
+
+try{
+
+const stored=JSON.parse(
+localStorage.getItem(STORAGE_KEY)||"null"
+);
+
+return Array.isArray(stored)?stored:null;
+
+}catch(error){
+
+return null;
+
+}
+
+}
+
+let users=loadUsers();  
+  
+/* =========================  
+   CONSTANTS  
+========================= */  
+  
+const PHP_PER_POINT=0.05;  
+const INVITE_REWARD_POINTS=400;  
+const REGULAR_PAYOUT_FEE=0.10;  
+const REGULAR_MIN_PAYOUT=300;  
+const INVITE_MIN_PAYOUT=400;  
+  
+/* =========================  
+   USER ID  
+========================= */  
+  
+function generateUserId(){  
+  
+let id="";  
+  
+do{  
+  
+const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";  
+  
+let random="";  
+  
+for(let i=0;i<8;i++){  
+  
+random+=chars.charAt(  
+Math.floor(Math.random()*chars.length)  
+);  
+  
+}  
+  
+id="NV-"+random;  
+  
+}while(  
+users &&  
+users.some(function(user){  
+return user.userId===id;  
+})  
+);  
+  
+return id;  
+  
+}  
+  
+/* =========================  
+   INITIAL DATABASE  
+========================= */  
+  
+if(!users){  
+  
+users=[  
+  
+{  
+id:"demo1",  
+userId:"NV-DEMO0001",  
+name:"Demo User",  
+username:"demoUser",  
+upline:"ADMIN",  
+contact:"09123456789",  
+email:"demo@gmail.com",  
+password:"1234",  
+status:"Activated",  
+points:126,  
+inviteWithdrawnPoints:0  
+},  
+  
+{  
+id:"demo2",  
+userId:"NV-DEMO0002",  
+name:"Maria Demo",  
+username:"maria23",  
+upline:"NV-DEMO0001",  
+contact:"09000000001",  
+email:"maria@gmail.com",  
+password:"1234",  
+status:"Pending",  
+points:0,  
+inviteWithdrawnPoints:0  
+},  
+  
+{  
+id:"demo3",  
+userId:"NV-DEMO0003",  
+name:"Angel Demo",  
+username:"angel01",  
+upline:"NV-DEMO0001",  
+contact:"09000000002",  
+email:"angel@gmail.com",  
+password:"1234",  
+status:"Pending",  
+points:0,  
+inviteWithdrawnPoints:0  
+}  
+  
+];  
+  
+localStorage.setItem(  
+STORAGE_KEY,  
+JSON.stringify(users)  
+);  
+  
+}else{  
+  
+let changed=false;  
+  
+users.forEach(function(user){  
+  
+if(!user.userId){  
+  
+user.userId=generateUserId();  
+changed=true;  
+  
+}  
+  
+/* MIGRATE OLD PHP TRACKER */  
+  
+if(  
+typeof user.inviteWithdrawnPoints!=="number"  
+){  
+  
+if(typeof user.inviteWithdrawnPHP==="number"){  
+  
+user.inviteWithdrawnPoints=  
+Math.round(  
+user.inviteWithdrawnPHP/PHP_PER_POINT  
+);  
+  
+}else{  
+  
+user.inviteWithdrawnPoints=0;  
+  
+}  
+  
+changed=true;  
+  
+}  
+  
+});  
+  
+if(changed){  
+  
+localStorage.setItem(  
+STORAGE_KEY,  
+JSON.stringify(users)  
+);  
+  
+}  
+  
+}  
+  
+let currentUser=null;  
+  
+let gameType="";
+let gameAnswer="";
+let gameAnswered=false;
+let gameTimerInterval=null;  
+  
+/* FORGOT */  
+  
+let resetUser=null;  
+let resetChannel="";  
+let resetDestination="";  
+let resetOtp="";  
+let resetOtpExpires=0;  
+let resetOtpTimerInterval=null;  
+  
+/* PAYOUT */  
+  
+let selectedPayoutBalance="regular";  
+  
+/* =========================  
+   SCREEN  
+========================= */  
+  
+function showScreen(id){  
+  
+document.querySelectorAll(".screen")  
+.forEach(function(screen){  
+screen.classList.remove("active");  
+});  
+  
+const target=document.getElementById(id);  
+  
+if(target){  
+target.classList.add("active");  
+}  
+  
+if(id==="dashboard"){  
+updateDashboard();  
+}  
+  
+if(id==="balance"){  
+updateBalanceScreen();  
+}  
+  
+if(id==="account"){  
+updateAccountScreen();  
+}  
+  
+if(id==="payout"){
+updatePayoutScreen();
+renderMemberPayoutHistory();
+}  
+  
+if(id==="inviteToday"){  
+updateInviteToday();  
+}  
+  
+}  
+  
+/* =========================  
+   SAVE  
+========================= */  
+  
+function saveUsers(){  
+  
+localStorage.setItem(  
+STORAGE_KEY,  
+JSON.stringify(users)  
+);  
+  
+}  
+  
+/* =========================  
+   SYNC  
+========================= */  
+  
+function syncCurrentUser(){  
+  
+if(!currentUser)return;  
+  
+const index=  
+users.findIndex(function(user){  
+return user.id===currentUser.id;  
+});  
+  
+if(index!==-1){  
+  
+users[index]=currentUser;  
+  
+saveUsers();  
+  
+}  
+  
+}  
+  
+/* =========================  
+   ESCAPE  
+========================= */  
+  
+function escapeHtml(value){  
+  
+return String(value||"")  
+.replace(/&/g,"&amp;")  
+.replace(/</g,"&lt;")  
+.replace(/>/g,"&gt;")  
+.replace(/"/g,"&quot;")  
+.replace(/'/g,"&#039;");  
+  
+}  
+  
+/* =========================  
+   BALANCE  
+========================= */  
+  
+function getBalancePHP(){  
+  
+if(!currentUser)return 0;  
+  
+return Number(currentUser.points||0)*PHP_PER_POINT;  
+  
+}  
+  
+function getBalanceUSD(){  
+  
+if(!currentUser)return 0;  
+  
+return Number(currentUser.points||0)/1000;  
+  
+}  
+  
+/* =========================  
+   POINT UI  
+========================= */  
+  
+function updatePointsUI(){  
+  
+if(!currentUser)return;  
+  
+const points=  
+Number(currentUser.points||0);  
+  
+const balancePoints=  
+document.getElementById("balancePoints");  
+  
+if(balancePoints){  
+balancePoints.textContent=points;  
+}  
+  
+const accountPoints=  
+document.getElementById("accountPoints");  
+  
+if(accountPoints){  
+accountPoints.textContent=points+" Points";  
+}  
+  
+const resultPoints=  
+document.getElementById("resultPoints");  
+  
+if(resultPoints){  
+resultPoints.textContent=points;  
+}  
+  
+}  
+  
+/* =========================  
+   DASHBOARD  
+========================= */  
+  
+function updateDashboard(){  
+  
+if(!currentUser)return;  
+  
+updatePointsUI();  
+  
+const points=  
+Number(currentUser.points||0);  
+  
+const profileName=  
+document.getElementById("profileName");  
+  
+if(profileName){  
+profileName.textContent=currentUser.name;  
+}  
+  
+const profileUsername=  
+document.getElementById("profileUsername");  
+  
+if(profileUsername){  
+profileUsername.textContent="@"+currentUser.username;  
+}  
+  
+const profileUserId=  
+document.getElementById("profileUserId");  
+  
+if(profileUserId){  
+profileUserId.textContent=  
+"USER_ID: "+currentUser.userId;  
+}  
+  
+const profileStatus=  
+document.getElementById("profileStatus");  
+  
+if(profileStatus){  
+  
+profileStatus.textContent=  
+currentUser.status==="Activated"  
+?"● ACTIVATED"  
+:"● "+currentUser.status.toUpperCase();  
+  
+profileStatus.className=  
+"profile-status "+  
+(  
+currentUser.status==="Activated"  
+?""  
+:"pending"  
+);  
+  
+}  
+  
+const profilePoints=  
+document.getElementById("profilePoints");  
+  
+if(profilePoints){  
+profilePoints.textContent=points;  
+}  
+  
+const profileBalance=  
+document.getElementById("profileBalance");  
+  
+if(profileBalance){  
+profileBalance.textContent=  
+"₱"+getBalancePHP().toFixed(2);  
+}  
+  
+}  
+  
+/* =========================  
+   REFERRAL  
+========================= */  
+  
+function getReferralLink(userId){  
+  
+const base=  
+window.location.href.split("?")[0];  
+  
+return base+  
+"?ref="+  
+encodeURIComponent(userId);  
+  
+}  
+  
+function readReferral(){  
+  
+const params=  
+new URLSearchParams(window.location.search);  
+  
+return params.get("ref")||"";  
+  
+}  
+  
+function findUserByUserId(userId){  
+  
+if(!userId)return null;  
+  
+return users.find(function(user){  
+  
+return String(user.userId||"").toLowerCase()===  
+String(userId).trim().toLowerCase();  
+  
+})||null;  
+  
+}  
+  
+/* =========================  
+   UPLINE  
+========================= */  
+  
+function validateUplineUserId(){  
+  
+const input=  
+document.getElementById("signupUpline");  
+  
+const result=  
+document.getElementById("uplineValidation");  
+  
+if(!input||!result)return null;  
+  
+const value=input.value.trim();  
+  
+if(!value){  
+  
+result.textContent="Enter a valid Upline USER_ID.";  
+result.style.color="#cfa8db";  
+  
+return null;  
+  
+}  
+  
+const found=findUserByUserId(value);  
+  
+if(!found){  
+  
+result.textContent=  
+"❌ Invalid Upline USER_ID. USER_ID not found.";  
+  
+result.style.color="#ff7181";  
+  
+return null;  
+  
+}  
+  
+result.innerHTML=  
+"✅ Valid Upline: <strong>"+  
+escapeHtml(found.name)+  
+"</strong> (@"+  
+escapeHtml(found.username)+  
+")";  
+  
+result.style.color="#65f09d";  
+  
+return found;  
+  
+}  
+  
+/* =========================  
+   SIGNUP  
+========================= */  
+  
+function openSignup(){  
+  
+const referral=readReferral();  
+  
+const upline=  
+document.getElementById("signupUpline");  
+  
+const notice=  
+document.getElementById("referralNotice");  
+  
+if(referral){  
+  
+const found=findUserByUserId(referral);  
+  
+if(found){  
+  
+upline.value=found.userId;  
+upline.readOnly=true;  
+  
+notice.style.display="block";  
+notice.className="notice success-notice";  
+  
+notice.innerHTML=  
+"🔗 Referral detected.<br>"+  
+"Upline USER_ID: <strong>"+  
+escapeHtml(found.userId)+  
+"</strong><br>"+  
+"Upline Name: <strong>"+  
+escapeHtml(found.name)+  
+"</strong>";  
+  
+validateUplineUserId();  
+  
+}else{  
+  
+upline.value=referral;  
+upline.readOnly=false;  
+  
+notice.style.display="block";  
+notice.className="notice error-notice";  
+  
+notice.innerHTML=  
+"❌ Invalid referral USER_ID.<br>"+  
+"Please enter a valid registered Upline USER_ID.";  
+  
+validateUplineUserId();  
+  
+}  
+  
+}else{  
+  
+upline.value="";  
+upline.readOnly=false;  
+notice.style.display="none";  
+  
+}  
+  
+showScreen("signup");  
+  
+}  
+  
+/* =========================  
+   DOM READY  
+========================= */  
+  
+document.addEventListener(  
+"DOMContentLoaded",  
+function(){  
+  
+const input=  
+document.getElementById("signupUpline");  
+  
+if(input){  
+  
+input.addEventListener(  
+"input",  
+function(){  
+  
+this.readOnly=false;  
+validateUplineUserId();  
+  
+}  
+);  
+  
+}  
+  
+const channels=  
+document.querySelectorAll(  
+'input[name="resetChannel"]'  
+);  
+  
+channels.forEach(function(channel){  
+  
+channel.addEventListener(  
+"change",  
+updateForgotChannelUI  
+);  
+  
+});  
+  
+updateForgotChannelUI();  
+  
+}  
+);  
+  
+/* =========================  
+   INVITE SYSTEM  
+========================= */  
+  
+function getTodayKey(){  
+  
+const d=new Date();  
+  
+return d.getFullYear()+"-"+  
+String(d.getMonth()+1).padStart(2,"0")+"-"+  
+String(d.getDate()).padStart(2,"0");  
+  
+}  
+  
+function getInviteTodayKey(username){  
+  
+return "nuvinaInviteToday_"+  
+username+"_"+getTodayKey();  
+  
+}  
+  
+function getInviteTodayCount(username){  
+  
+if(!username)return 0;  
+  
+return Number(  
+localStorage.getItem(  
+getInviteTodayKey(username)  
+)||0  
+);  
+  
+}  
+  
+function getTotalInviteCount(){  
+  
+if(!currentUser)return 0;  
+  
+return users.filter(function(user){  
+  
+return String(user.upline||"").toLowerCase()===  
+String(currentUser.userId||"").toLowerCase();  
+  
+}).length;  
+  
+}  
+  
+/* GROSS INVITE POINTS */  
+  
+function getInviteGrossPoints(){  
+  
+if(!currentUser)return 0;  
+  
+return getTotalInviteCount()*  
+INVITE_REWARD_POINTS;  
+  
+}  
+  
+/* INVITE WITHDRAWN POINTS */  
+  
+function getInviteWithdrawnPoints(){  
+  
+if(!currentUser)return 0;  
+  
+return Math.max(  
+0,  
+Number(currentUser.inviteWithdrawnPoints||0)  
+);  
+  
+}  
+  
+/* AVAILABLE INVITE POINTS */  
+  
+function getInviteBalancePoints(){  
+  
+const gross=getInviteGrossPoints();  
+  
+const withdrawn=getInviteWithdrawnPoints();  
+  
+return Math.max(  
+0,  
+gross-withdrawn  
+);  
+  
+}  
+  
+/* AVAILABLE INVITE PHP */  
+  
+function getInviteBalancePHP(){  
+  
+return getInviteBalancePoints()*  
+PHP_PER_POINT;  
+  
+}  
+  
+/* =========================  
+   INVITE UI  
+========================= */  
+  
+function updateInviteToday(){  
+  
+if(!currentUser)return;  
+  
+const userIdBox=  
+document.getElementById("inviteUserId");  
+  
+if(userIdBox){  
+userIdBox.textContent=currentUser.userId;  
+}  
+  
+const link=  
+getReferralLink(currentUser.userId);  
+  
+const linkBox=  
+document.getElementById("inviteReferralLink");  
+  
+if(linkBox){  
+linkBox.textContent=link;  
+}  
+  
+const count=  
+getInviteTodayCount(currentUser.username);  
+  
+const countBox=  
+document.getElementById("inviteTodayCount");  
+  
+if(countBox){  
+countBox.textContent=count;  
+}  
+  
+const totalInvites=  
+getTotalInviteCount();  
+  
+const invitePoints=  
+getInviteBalancePoints();  
+  
+const invitePHP=  
+getInviteBalancePHP();  
+  
+const totalBox=  
+document.getElementById("inviteTotalCount");  
+  
+if(totalBox){  
+totalBox.textContent=totalInvites;  
+}  
+  
+const pointsBox=  
+document.getElementById("inviteBalancePoints");  
+  
+if(pointsBox){  
+pointsBox.textContent=  
+invitePoints+" POINTS";  
+}  
+  
+const phpBox=  
+document.getElementById("inviteBalancePHP");  
+  
+if(phpBox){  
+phpBox.textContent=  
+"₱"+invitePHP.toFixed(2);  
+}  
+  
+}  
+  
+/* =========================  
+   SHOW INVITE  
+========================= */  
+  
+function showInviteToday(){  
+  
+if(!currentUser){  
+  
+showScreen("login");  
+return;  
+  
+}  
+  
+updateInviteToday();  
+showScreen("inviteToday");  
+  
+}  
+  
+/* =========================  
+   REGISTER  
+========================= */  
+  
+function registerUser(){  
+  
+const name=  
+document.getElementById("signupName").value.trim();  
+  
+const username=  
+document.getElementById("signupUsername").value.trim();  
+  
+const uplineUserId=  
+document.getElementById("signupUpline").value.trim();  
+  
+const contact=  
+document.getElementById("signupContact").value.trim();  
+  
+const email=  
+document.getElementById("signupEmail").value.trim();  
+  
+const password=  
+document.getElementById("signupPassword").value;  
+  
+const confirm=  
+document.getElementById("signupConfirm").value;  
+  
+if(!name||!username||!uplineUserId||!contact||!email||!password){  
+  
+alert("Please complete all fields.");  
+return;  
+  
+}  
+  
+if(password!==confirm){  
+  
+alert("Passwords do not match.");  
+return;  
+  
+}  
+  
+const exists=  
+users.some(function(user){  
+  
+return String(user.username||"").toLowerCase()===  
+username.toLowerCase();  
+  
+});  
+  
+if(exists){  
+  
+alert("Username already exists.");  
+return;  
+  
+}  
+  
+const referralUser=  
+findUserByUserId(uplineUserId);  
+  
+if(!referralUser){  
+  
+alert(  
+"❌ INVALID UPLINE USER_ID\n\n"+  
+"The Upline USER_ID you entered is not registered."  
+);  
+  
+return;  
+  
+}  
+  
+const newUserId="user_"+Date.now();  
+const memberUserId=generateUserId();  
+  
+const newUser={  
+  
+id:newUserId,  
+userId:memberUserId,  
+name:name,  
+username:username,  
+upline:referralUser.userId,  
+contact:contact,  
+email:email,  
+password:password,  
+status:"Pending",  
+points:0,  
+inviteWithdrawnPoints:0  
+  
+};  
+  
+users.push(newUser);  
+  
+/* REFERRAL REWARD */  
+  
+const rewardKey=  
+"nuvinaReferralRewarded_"+newUserId;  
+  
+if(localStorage.getItem(rewardKey)!=="1"){  
+  
+referralUser.points=  
+Number(referralUser.points||0)+  
+INVITE_REWARD_POINTS;  
+  
+const todayCount=  
+getInviteTodayCount(referralUser.username);  
+  
+localStorage.setItem(  
+getInviteTodayKey(referralUser.username),  
+String(todayCount+1)  
+);  
+  
+localStorage.setItem(  
+rewardKey,  
+"1"  
+);  
+  
+}  
+  
+saveUsers();  
+  
+const success=  
+document.getElementById("signupSuccessDetails");  
+  
+if(success){  
+  
+success.innerHTML=  
+"🎉 Account successfully created!"+  
+"<br><br>"+  
+"<strong>YOUR USER_ID:</strong><br>"+  
+escapeHtml(memberUserId)+  
+"<br><br>"+  
+"<strong>UPLINE USER_ID:</strong><br>"+  
+escapeHtml(referralUser.userId)+  
+"<br><br>"+  
+"Your account is now <strong>PENDING</strong>.";  
+  
+}  
+  
+[  
+"signupName",  
+"signupUsername",  
+"signupUpline",  
+"signupContact",  
+"signupEmail",  
+"signupPassword",  
+"signupConfirm"  
+].forEach(function(id){  
+  
+const el=document.getElementById(id);  
+  
+if(el)el.value="";  
+  
+});  
+  
+alert(  
+"🎉 ACCOUNT CREATED!\n\n"+  
+"Your USER_ID:\n"+  
+memberUserId+  
+"\n\n"+  
+"Upline USER_ID:\n"+  
+referralUser.userId+  
+"\n\n"+  
+"Status: PENDING"  
+);  
+  
+showScreen("signupSuccess");  
+  
+}  
+  
+/* =========================  
+   LOGIN  
+========================= */  
+  
+function loginUser(){  
+  
+const username=  
+document.getElementById("loginUsername").value.trim();  
+  
+const password=  
+document.getElementById("loginPassword").value;  
+  
+const user=users.find(function(item){
+
+return String(item.username||"").toLowerCase()===
+username.toLowerCase();
+
+});
+
+if(!user){
+
+alert("Username not found.");
+return;
+
+}
+
+if(user.password!==password){
+
+alert("Invalid password.");
+return;
+
+}  
+  
+if(user.status!=="Activated"){  
+  
+alert(  
+"Your account is still pending activation.\n\n"+  
+"USER_ID: "+  
+(user.userId||"-")  
+);  
+  
+return;  
+  
+}  
+  
+currentUser=user;  
+  
+if(typeof currentUser.inviteWithdrawnPoints!=="number"){  
+  
+currentUser.inviteWithdrawnPoints=0;  
+  
+syncCurrentUser();  
+  
+}  
+  
+document.getElementById("loginUsername").value="";  
+document.getElementById("loginPassword").value="";  
+  
+showScreen("dashboard");  
+  
+}  
+  
+/* =========================  
+   LOGOUT  
+========================= */  
+  
+function logoutUser(){  
+  
+currentUser=null;  
+  
+stopGameTimer();  
+  
+showScreen("home");  
+  
+}  
+  
+/* =========================  
+   DAILY BONUS  
+========================= */  
+  
+const DAILY_BONUS_TIME=24*60*60*1000;  
+  
+function getDailyBonusKey(){  
+  
+if(!currentUser)return "";  
+  
+return "nuvinaDailyBonus_"+currentUser.username;  
+  
+}  
+  
+function getDailyBonusLastClaim(){  
+  
+if(!currentUser)return 0;  
+  
+return Number(  
+localStorage.getItem(getDailyBonusKey())||0  
+);  
+  
+}  
+  
+function showDailyBonus(){  
+  
+if(!currentUser){  
+  
+showScreen("login");  
+return;  
+  
+}  
+  
+showScreen("dailyBonus");  
+updateDailyBonusUI();  
+  
+}  
+  
+function claimDailyBonus(){  
+  
+if(!currentUser){  
+  
+showScreen("login");  
+return;  
+  
+}  
+  
+const now=Date.now();  
+const lastClaim=getDailyBonusLastClaim();  
+  
+if(lastClaim&&now-lastClaim<DAILY_BONUS_TIME){  
+  
+updateDailyBonusUI();  
+  
+alert(  
+"🎁 DAILY BONUS\n\n"+  
+"You already claimed your bonus.\n"+  
+"Please wait 24 hours."  
+);  
+  
+return;  
+  
+}  
+  
+currentUser.points=
+Number(currentUser.points||0)+100;  
+  
+localStorage.setItem(  
+getDailyBonusKey(),  
+String(now)  
+);  
+  
+syncCurrentUser();  
+  
+updateDashboard();  
+updateDailyBonusUI();  
+  
+alert(  
+"🎁 DAILY BONUS CLAIMED!\n\n"+  
+"+100 POINTS"  
+);  
+  
+}  
+  
+function updateDailyBonusUI(){  
+  
+if(!currentUser)return;  
+  
+const button=  
+document.getElementById("dailyBonusButton");  
+  
+const status=  
+document.getElementById("dailyBonusStatus");  
+  
+const timer=  
+document.getElementById("dailyBonusTimer");  
+  
+if(!button||!status||!timer)return;  
+  
+const lastClaim=getDailyBonusLastClaim();  
+const now=Date.now();  
+  
+if(!lastClaim||now-lastClaim>=DAILY_BONUS_TIME){  
+  
+button.disabled=false;  
+status.textContent=  
+"🎁 You can claim your bonus now.";  
+timer.textContent="";  
+  
+return;  
+  
+}  
+  
+button.disabled=true;  
+  
+status.textContent=  
+"⏳ Daily bonus already claimed.";  
+  
+const remaining=  
+DAILY_BONUS_TIME-(now-lastClaim);  
+  
+const hours=  
+Math.floor(remaining/(1000*60*60));  
+  
+const minutes=  
+Math.floor(  
+(remaining%(1000*60*60))/(1000*60)  
+);  
+  
+const seconds=  
+Math.floor(  
+(remaining%(1000*60))/1000  
+);  
+  
+timer.textContent=  
+"NEXT CLAIM IN: "+  
+String(hours).padStart(2,"0")+":"+  
+String(minutes).padStart(2,"0")+":"+  
+String(seconds).padStart(2,"0");  
+  
+}  
+  
+setInterval(function(){  
+  
+if(  
+currentUser &&  
+document.getElementById("dailyBonus") &&  
+document.getElementById("dailyBonus").classList.contains("active")  
+){  
+  
+updateDailyBonusUI();  
+  
+}  
+  
+},1000);  
+  
+/* =========================  
+   BALANCE SCREEN  
+========================= */  
+  
+function updateBalanceScreen(){  
+  
+if(!currentUser)return;  
+  
+document.getElementById("balancePoints").textContent=  
+currentUser.points;  
+  
+document.getElementById("balancePHP").textContent=  
+"₱"+getBalancePHP().toFixed(2);  
+  
+document.getElementById("balanceUSD").textContent=  
+"$"+getBalanceUSD().toFixed(3);  
+  
+}  
+  
+/* =========================  
+   ACCOUNT  
+========================= */  
+  
+function updateAccountScreen(){  
+  
+if(!currentUser)return;  
+  
+document.getElementById("accountUserId").textContent=  
+currentUser.userId;  
+  
+document.getElementById("accountName").textContent=  
+currentUser.name;  
+  
+document.getElementById("accountUsername").textContent=  
+currentUser.username;  
+  
+document.getElementById("accountUpline").textContent=  
+currentUser.upline;  
+  
+document.getElementById("accountContact").textContent=  
+currentUser.contact;  
+  
+document.getElementById("accountEmail").textContent=  
+currentUser.email;  
+  
+const status=  
+document.getElementById("accountStatus");  
+  
+status.textContent=currentUser.status;  
+  
+status.className=  
+"status "+  
+(  
+currentUser.status==="Activated"  
+?"activated"  
+:"pending"  
+);  
+  
+document.getElementById("accountPoints").textContent=  
+currentUser.points+" Points";  
+  
+document.getElementById("accountReferralLink").textContent=  
+getReferralLink(currentUser.userId);  
+  
+}  
+  
+function copyMyReferralLink(){  
+  
+if(!currentUser)return;  
+  
+const link=  
+getReferralLink(currentUser.userId);  
+  
+if(navigator.clipboard&&navigator.clipboard.writeText){  
+  
+navigator.clipboard.writeText(link)  
+.then(function(){  
+  
+alert(  
+"Referral link copied!\n\n"+  
+"USER_ID: "+currentUser.userId  
+);  
+  
+})  
+.catch(function(){  
+  
+prompt("Copy your referral link:",link);  
+  
+});  
+  
+}else{  
+  
+prompt("Copy your referral link:",link);  
+  
+}  
+  
+}  
+  
+/* =====================================================  
+   PAYOUT SYSTEM  
+===================================================== */  
+  
+/* SELECT BALANCE */  
+  
+function selectPayoutBalance(type){  
+  
+if(type!=="regular"&&type!=="invite"){  
+type="regular";  
+}  
+  
+selectedPayoutBalance=type;  
+  
+document.getElementById(  
+"payoutBalanceType"  
+).value=type;  
+  
+const regularCard=  
+document.getElementById("regularPayoutCard");  
+  
+const inviteCard=  
+document.getElementById("invitePayoutCard");  
+  
+regularCard.classList.toggle(  
+"active",  
+type==="regular"  
+);  
+  
+inviteCard.classList.toggle(  
+"active",  
+type==="invite"  
+);  
+  
+const label=  
+document.getElementById("payoutSelectedLabel");  
+  
+const rule=  
+document.getElementById("payoutRuleText");  
+  
+const maximum=  
+document.getElementById("payoutMaximum");  
+  
+const amount=  
+document.getElementById("payoutAmount");  
+  
+if(type==="invite"){  
+  
+label.textContent=  
+"SELECTED: INVITE BALANCE ₱";  
+  
+rule.innerHTML=  
+"<strong>INVITE BALANCE</strong><br>"+  
+"Minimum ₱400 • NO MAXIMUM.<br>"+  
+"NO 10% DEDUCTION.<br>"+  
+"Available: ₱"+  
+getInviteBalancePHP().toFixed(2);  
+  
+maximum.value="all";  
+maximum.disabled=true;  
+maximum.style.opacity=".5";  
+  
+amount.min="400";  
+amount.step="0.05";  
+amount.placeholder=  
+"Payout Amount from Invite Balance ₱";  
+  
+}else{  
+  
+label.textContent=  
+"SELECTED: BALANCE ₱";  
+  
+rule.innerHTML=  
+"<strong>BALANCE ₱</strong><br>"+  
+"Minimum ₱300.<br>"+  
+"Maximum: ALL BALANCE.<br>"+  
+"10% PAYOUT DEDUCTION.";  
+  
+maximum.disabled=false;  
+maximum.style.opacity="1";  
+maximum.value="all";  
+  
+amount.min="300";  
+amount.step="0.05";  
+amount.placeholder=  
+"Payout Amount ₱";  
+  
+}  
+  
+updatePayoutScreen();  
+  
+}  
+  
+/* =========================  
+   PAYOUT UI  
+========================= */  
+  
+function updatePayoutScreen(){  
+  
+if(!currentUser)return;  
+  
+/* REGULAR */  
+  
+const regularBalance=  
+getBalancePHP();  
+  
+const regularPoints=  
+Number(currentUser.points||0);  
+  
+/* INVITE */  
+  
+const inviteBalance=  
+getInviteBalancePHP();  
+  
+const invitePoints=  
+getInviteBalancePoints();  
+  
+/* TOP REGULAR */  
+  
+document.getElementById(  
+"payoutRegularBalance"  
+).textContent=  
+"₱"+regularBalance.toFixed(2);  
+  
+document.getElementById(  
+"payoutRegularPoints"  
+).textContent=  
+regularPoints+" POINTS";  
+  
+/* TOP INVITE */  
+  
+document.getElementById(  
+"payoutInviteBalance"  
+).textContent=  
+"₱"+inviteBalance.toFixed(2);  
+  
+document.getElementById(  
+"payoutInvitePointsCard"  
+).textContent=  
+invitePoints+" POINTS";  
+  
+/* SELECTED */  
+  
+if(selectedPayoutBalance==="invite"){  
+  
+document.getElementById(  
+"payoutBalance"  
+).textContent=  
+"₱"+inviteBalance.toFixed(2);  
+  
+document.getElementById(  
+"payoutPoints"  
+).textContent=  
+regularPoints;  
+  
+document.getElementById(  
+"payoutInvitePointsLine"  
+).style.display="block";  
+  
+document.getElementById(  
+"payoutInvitePoints"  
+).textContent=  
+invitePoints;  
+  
+}else{  
+  
+document.getElementById(  
+"payoutBalance"  
+).textContent=  
+"₱"+regularBalance.toFixed(2);  
+  
+document.getElementById(  
+"payoutPoints"  
+).textContent=  
+regularPoints;  
+  
+document.getElementById(  
+"payoutInvitePointsLine"  
+).style.display="none";  
+  
+}  
+  
+}  
+  
+/* =========================  
+   PAYOUT SCHEDULE  
+========================= */  
+  
+function isPayoutSchedule(){  
+  
+const now=new Date();  
+  
+const day=now.getDay();  
+const hour=now.getHours();  
+  
+const correctDay=  
+day===3||day===6;  
+  
+const correctTime=  
+hour>=7&&hour<21;  
+  
+return correctDay&&correctTime;  
+  
+}  
+  
+/* =========================  
+   PAYOUT MESSAGE  
+========================= */  
+  
+function showPayoutMessage(message,type){  
+  
+const box=  
+document.getElementById("payoutMessage");  
+  
+if(!box)return;  
+  
+box.className=  
+"payout-message "+type;  
+  
+box.innerHTML=message;  
+  
+}  
+  
+/* =========================  
+   PAYOUT HISTORY  
+========================= */  
+  
+function getPayoutTransactions(){
+
+try{
+const history=JSON.parse(
+localStorage.getItem("nuvinaPayoutTransactions")||"[]"
+);
+if(!Array.isArray(history))return [];
+return history.map(function(transaction){
+if(transaction.status==="Submitted"){
+transaction.status="Pending";
+}
+return transaction;
+});
+}catch(error){
+return [];
+}
+
+}
+
+function savePayoutTransaction(transaction){
+
+const history=getPayoutTransactions();
+const existingIndex=history.findIndex(function(item){
+return item.id===transaction.id;
+});
+if(existingIndex===-1){
+history.unshift(transaction);
+}else{
+history[existingIndex]=transaction;
+}
+localStorage.setItem(
+"nuvinaPayoutTransactions",
+JSON.stringify(history)
+);
+renderMemberPayoutHistory();
+
+}
+
+function renderMemberPayoutHistory(){
+
+const container=document.getElementById("memberPayoutHistory");
+if(!container||!currentUser)return;
+
+const history=getPayoutTransactions().filter(function(transaction){
+return transaction.userId===currentUser.userId;
+});
+
+if(history.length===0){
+container.innerHTML="";
+return;
+}
+
+container.innerHTML=
+'<h3>📋 MY PAYOUT REQUESTS</h3>'+history.map(function(transaction){
+const successful=transaction.status==="Successful";
+return '<div class="notice '+(successful?"success-notice":"")+'">'+
+'<strong>'+escapeHtml(transaction.source||"PAYOUT")+' — '+escapeHtml(transaction.status||"Pending")+'</strong><br>'+ 
+'Amount: ₱'+Number(transaction.grossPHP||0).toFixed(2)+'<br>'+ 
+'Payment: '+escapeHtml(transaction.method||"")+'<br>'+ 
+(successful
+?'🎉 Congratulations! Your withdrawal was successfully completed.'
+:'⏳ Your payout request is pending admin confirmation.')+
+'</div>';
+}).join("");
+
+} 
+
+function getAdminPayoutMarkup(user){
+
+const requests=getPayoutTransactions().filter(function(transaction){
+return transaction.userId===user.userId;
+});
+
+if(requests.length===0)return "";
+
+return '<div class="admin-user-details"><strong>💸 PAYOUT REQUESTS</strong>'+requests.map(function(transaction){
+const successful=transaction.status==="Successful";
+return '<div class="notice '+(successful?"success-notice":"")+'">'+
+'<strong>'+escapeHtml(transaction.source||"PAYOUT")+' — '+escapeHtml(transaction.status||"Pending")+'</strong><br>'+ 
+'Amount: ₱'+Number(transaction.grossPHP||0).toFixed(2)+' • Net: ₱'+Number(transaction.netPHP||0).toFixed(2)+'<br>'+ 
+'Method: '+escapeHtml(transaction.method||"")+'<br>'+ 
+'Account: '+escapeHtml(transaction.account||"")+'<br>'+ 
+(successful
+?'🎉 Successful withdrawal confirmed.'
+:'<button type="button" onclick="markPayoutSuccessful(\''+escapeHtml(transaction.id)+'\')">✅ MARK WITHDRAWAL SUCCESSFUL</button>')+
+'</div>';
+}).join("")+'</div>';
+
+}
+
+function markPayoutSuccessful(transactionId){
+
+const transaction=getPayoutTransactions().find(function(item){
+return item.id===transactionId;
+});
+
+if(!transaction||transaction.status!=="Pending")return;
+
+const confirmed=confirm(
+"Confirm this withdrawal is successful?\n\nComplete the payment to the member before confirming."
+);
+if(!confirmed)return;
+
+transaction.status="Successful";
+transaction.paidAt=new Date().toISOString();
+savePayoutTransaction(transaction);
+renderAdminUsers();
+renderMemberPayoutHistory();
+
+alert(
+"🎉 Congratulations!\n\nWithdrawal successfully confirmed for @"+
+(transaction.username||"member")+"."
+);
+
+}  
+  
+/* =========================  
+   REQUEST PAYOUT  
+========================= */  
+  
+function requestPayout(){  
+  
+if(!currentUser){  
+  
+showScreen("login");  
+return;  
+  
+}  
+  
+const type=  
+document.getElementById(  
+"payoutBalanceType"  
+).value;  
+  
+const method=  
+document.getElementById(  
+"payoutMethod"  
+).value;  
+  
+const account=  
+document.getElementById(  
+"payoutAccount"  
+).value.trim();  
+  
+const amount=  
+Number(  
+document.getElementById(  
+"payoutAmount"  
+).value  
+);  
+  
+const message=  
+document.getElementById(  
+"payoutMessage"  
+);  
+  
+if(message){  
+  
+message.className="payout-message";  
+message.innerHTML="";  
+  
+}  
+  
+/* ==========================================  
+   INVITE BALANCE  
+   NO 10% DEDUCTION  
+   NO MAXIMUM  
+========================================== */  
+  
+if(type==="invite"){  
+  
+const inviteBalance=  
+getInviteBalancePHP();  
+  
+if(  
+!Number.isFinite(amount)||  
+amount<=0  
+){  
+  
+showPayoutMessage(  
+"❌ INVALID AMOUNT.",  
+"error"  
+);  
+  
+return;  
+  
+}  
+  
+if(amount<INVITE_MIN_PAYOUT){  
+  
+showPayoutMessage(  
+"❌ INVALID AMOUNT.<br><br>"+  
+"Invite Balance minimum withdrawal is <strong>₱400</strong>.",  
+"error"  
+);  
+  
+return;  
+  
+}  
+  
+if(amount>inviteBalance){  
+  
+showPayoutMessage(  
+"❌ INSUFFICIENT INVITE BALANCE.<br><br>"+  
+"Available Invite Balance: <strong>₱"+  
+inviteBalance.toFixed(2)+  
+"</strong>",  
+"error"  
+);  
+  
+return;  
+  
+}  
+  
+if(!method||!account){  
+  
+showPayoutMessage(  
+"❌ Please complete Payment Method and Account Number / Email.",  
+"error"  
+);  
+  
+return;  
+  
+}  
+  
+/* CONVERT PHP TO POINTS */  
+  
+const pointsToDeduct=  
+Math.round(amount/PHP_PER_POINT);  
+  
+const actualGrossPHP=  
+pointsToDeduct*PHP_PER_POINT;  
+  
+/* INVITE NO FEE */  
+  
+const fee=0;  
+  
+const net=  
+actualGrossPHP;  
+  
+/* DEDUCT INVITE POINTS */  
+  
+currentUser.inviteWithdrawnPoints=  
+Number(currentUser.inviteWithdrawnPoints||0)+  
+pointsToDeduct;  
+  
+syncCurrentUser();  
+  
+/* SAVE TRANSACTION */  
+  
+savePayoutTransaction({  
+  
+id:"PO-"+Date.now(),  
+  
+userId:currentUser.userId,  
+  
+username:currentUser.username,  
+  
+source:"INVITE BALANCE",  
+  
+method:method,  
+  
+account:account,  
+  
+grossPHP:actualGrossPHP,  
+  
+feePHP:fee,  
+  
+feePercent:0,  
+  
+netPHP:net,  
+  
+pointsDeducted:pointsToDeduct,  
+  
+date:new Date().toISOString(),  
+  
+status:"Pending"  
+  
+});  
+  
+/* CLEAR */  
+  
+document.getElementById(  
+"payoutAmount"  
+).value="";  
+  
+/* UPDATE EVERYTHING */  
+  
+updateInviteToday();  
+updatePayoutScreen();  
+updateDashboard();  
+updateBalanceScreen();  
+  
+/* SUCCESS */  
+  
+showPayoutMessage(  
+  
+"✅ PAYOUT REQUEST SUBMITTED — STATUS: PENDING.<br><br>"+  
+  
+"<strong>SOURCE:</strong> INVITE BALANCE<br>"+  
+  
+"<strong>REQUESTED:</strong> ₱"+  
+actualGrossPHP.toFixed(2)+  
+"<br>"+  
+  
+"<strong>DEDUCTED FEE:</strong> ₱0.00 (0%)<br>"+  
+  
+"<strong>NET PAYOUT:</strong> ₱"+  
+net.toFixed(2)+  
+"<br>"+  
+  
+"<strong>POINTS DEDUCTED:</strong> "+  
+pointsToDeduct+  
+"<br><br>"+  
+  
+"<strong>REMAINING INVITE BALANCE:</strong> ₱"+  
+getInviteBalancePHP().toFixed(2)+  
+"<br>"+  
+  
+"<strong>REMAINING INVITE POINTS:</strong> "+  
+getInviteBalancePoints(),  
+  
+"success"  
+);  
+  
+return;  
+  
+}  
+  
+/* ==========================================  
+   REGULAR BALANCE  
+   10% DEDUCTION  
+========================================== */  
+  
+const balance=
+getBalancePHP();
+
+if(!Number.isFinite(amount)||amount<=0){
+
+showPayoutMessage(
+"❌ INVALID AMOUNT. Enter a valid payout amount.",
+"error"
+);
+
+return;
+
+}
+
+if(amount<REGULAR_MIN_PAYOUT){
+
+showPayoutMessage(
+"❌ INVALID AMOUNT.<br><br>"+
+"Minimum regular payout is ₱300.00.",
+"error"
+);
+
+return;
+
+}
+
+if(balance<REGULAR_MIN_PAYOUT){
+
+showPayoutMessage(
+"❌ MINIMUM PAYOUT NOT REACHED<br><br>"+
+"Minimum: ₱300.00<br>"+
+"Your Balance: ₱"+
+balance.toFixed(2),
+"error"
+);
+
+return;
+
+}
+
+if(amount>balance){
+
+showPayoutMessage(
+"❌ INVALID AMOUNT — INSUFFICIENT BALANCE.<br><br>"+
+"Maximum available: ₱"+
+balance.toFixed(2),
+"error"
+);
+
+return;
+
+}
+
+if(!method||!account){
+
+showPayoutMessage(
+"❌ Please complete Payment Method and Account Number / Email.",
+"error"
+);
+
+return;
+
+}
+
+if(!isPayoutSchedule()){
+
+showPayoutMessage(
+"❌ PAYOUT CLOSED<br><br>"+
+"Schedule:<br>"+
+"Wednesday 7:00 AM – 9:00 PM<br>"+
+"Saturday 7:00 AM – 9:00 PM",
+"error"
+);
+
+return;
+
+}
+
+/* ALL BALANCE sets the maximum; partial payouts are allowed. */
+  
+  
+/* CONVERT TO POINTS */  
+  
+const pointsToDeduct=  
+Math.round(amount/PHP_PER_POINT);  
+  
+const actualGrossPHP=  
+pointsToDeduct*PHP_PER_POINT;  
+  
+/* 10% FEE */  
+  
+const fee=  
+actualGrossPHP*REGULAR_PAYOUT_FEE;  
+  
+const net=  
+actualGrossPHP-fee;  
+  
+/* ==========================================  
+   DEDUCT REGULAR BALANCE + POINTS  
+========================================== */  
+  
+const currentPoints=  
+Number(currentUser.points||0);  
+  
+if(pointsToDeduct>currentPoints){  
+  
+showPayoutMessage(  
+"❌ INSUFFICIENT POINTS.",  
+"error"  
+);  
+  
+return;  
+  
+}  
+  
+currentUser.points=  
+Math.max(  
+0,  
+currentPoints-pointsToDeduct  
+);  
+  
+syncCurrentUser();  
+  
+/* SAVE TRANSACTION */  
+  
+savePayoutTransaction({  
+  
+id:"PO-"+Date.now(),  
+  
+userId:currentUser.userId,  
+  
+username:currentUser.username,  
+  
+source:"BALANCE",  
+  
+method:method,  
+  
+account:account,  
+  
+grossPHP:actualGrossPHP,  
+  
+feePHP:fee,  
+  
+feePercent:10,  
+  
+netPHP:net,  
+  
+pointsDeducted:pointsToDeduct,  
+  
+date:new Date().toISOString(),  
+  
+status:"Pending"  
+  
+});  
+  
+/* CLEAR */  
+  
+document.getElementById(  
+"payoutAmount"  
+).value="";  
+  
+/* REFRESH */  
+  
+updateDashboard();  
+updateBalanceScreen();  
+updateInviteToday();  
+updatePayoutScreen();  
+  
+/* SUCCESS */  
+  
+showPayoutMessage(  
+  
+"✅ PAYOUT REQUEST SUBMITTED — STATUS: PENDING.<br><br>"+  
+  
+"<strong>SOURCE:</strong> BALANCE ₱<br>"+  
+  
+"<strong>GROSS REQUEST:</strong> ₱"+  
+actualGrossPHP.toFixed(2)+  
+"<br>"+  
+  
+"<strong>DEDUCTED 10%:</strong> ₱"+  
+fee.toFixed(2)+  
+"<br>"+  
+  
+"<strong>NET PAYOUT:</strong> ₱"+  
+net.toFixed(2)+  
+"<br>"+  
+  
+"<strong>POINTS DEDUCTED:</strong> "+  
+pointsToDeduct+  
+"<br><br>"+  
+  
+"<strong>REMAINING BALANCE:</strong> ₱"+  
+getBalancePHP().toFixed(2)+  
+"<br>"+  
+  
+"<strong>REMAINING POINTS:</strong> "+  
+Number(currentUser.points||0),  
+  
+"success"  
+);  
+  
+}  
+  
+/* =========================  
+   TASKS  
+========================= */  
+  
+function showTasks(){  
+showScreen("tasks");  
+}  
+  
+function getGameTitle(type){
+
+if(type==="math")return"🧮 MATH";
+if(type==="captcha")return"🔐 CAPTCHA";
+if(type==="color")return"🌈 COLOR EMOJI";
+if(type==="animal")return"🐶 ANIMAL EMOJI GUESS";
+if(type==="logo")return"🖼️ LOGO";
+if(type==="flag")return"🏳️ GUESS THE FLAG";
+
+return"🎮 GAME";
+
+}  
+  
+function startGame(type){
+
+const validGameTypes=["math","captcha","color","animal","logo","flag"];
+
+if(!currentUser){
+showScreen("login");
+return;
+}
+
+if(!validGameTypes.includes(type))return;
+
+gameType=type;
+
+document.getElementById(
+"waitGameTitle"
+).textContent=getGameTitle(type);
+
+startGameWait();
+
+}  
+  
+function startGameWait(){  
+  
+stopGameTimer();  
+  
+showScreen("gameWait");  
+  
+let time=15;  
+  
+document.getElementById(  
+"gameTimer"  
+).textContent=time;  
+  
+gameTimerInterval=  
+setInterval(function(){  
+  
+time--;  
+  
+document.getElementById(  
+"gameTimer"  
+).textContent=time;  
+  
+if(time<=0){  
+  
+stopGameTimer();  
+generateQuestion();  
+  
+}  
+  
+},1000);  
+  
+}  
+  
+function stopGameTimer(){  
+  
+if(gameTimerInterval){  
+  
+clearInterval(gameTimerInterval);  
+gameTimerInterval=null;  
+  
+}  
+  
+}  
+  
+function stopGameAndTasks(){  
+  
+stopGameTimer();  
+showScreen("tasks");  
+  
+}  
+  
+function nextGameQuestion(){  
+startGameWait();  
+}  
+  
+/* =========================
+   GAME CHOICE HELPERS
+========================= */
+
+function shuffleArray(items){
+
+for(let i=items.length-1;i>0;i--){
+
+const j=Math.floor(Math.random()*(i+1));
+[items[i],items[j]]=[items[j],items[i]];
+
+}
+
+return items;
+
+}
+
+function getGameChoices(items,correctItem,count){
+
+const otherItems=items.filter(function(item){
+return item!==correctItem;
+});
+
+return shuffleArray([
+correctItem,
+...shuffleArray(otherItems).slice(0,count-1)
+]);
+
+}
+
+/* =========================
+   GENERATE QUESTION
+========================= */
+
+function generateQuestion(){  
+  
+gameAnswered=false;
+
+showScreen("gameQuestion");  
+  
+const title=  
+document.getElementById("gameTitle");  
+  
+const question=  
+document.getElementById("gameQuestionText");  
+  
+const options=  
+document.getElementById("gameOptions");  
+  
+title.textContent=gameType==="flag"?"":getGameTitle(gameType);  
+  
+question.textContent="";  
+options.innerHTML="";  
+  
+const calculatorButton=  
+document.getElementById("calculatorButton");  
+  
+const calculatorBox=  
+document.getElementById("calculatorBox");  
+  
+calculatorBox.style.display="none";  
+  
+calculatorButton.style.display=  
+gameType==="math"?"block":"none";  
+  
+calculatorReset();  
+  
+if(gameType==="math"){  
+  
+const a=  
+Math.floor(1000+Math.random()*9000);  
+  
+const b=  
+Math.floor(1000+Math.random()*9000);  
+  
+gameAnswer=String(a+b);  
+  
+question.textContent=  
+a+" + "+b+" = ?";  
+  
+const label=document.createElement("div");  
+  
+label.textContent="TYPE ENTER ANSWER";  
+label.style.fontWeight="900";  
+label.style.color="#e9cbed";  
+label.style.marginBottom="4px";  
+  
+options.appendChild(label);  
+  
+const input=document.createElement("input");  
+  
+input.id="mathAnswer";  
+input.type="number";  
+input.inputMode="numeric";  
+input.className="game-answer-input";  
+input.placeholder="ENTER ANSWER";  
+  
+options.appendChild(input);  
+  
+const btn=document.createElement("button");  
+  
+btn.textContent="ENTER ANSWER";  
+  
+btn.onclick=function(){  
+  
+const answer=  
+document.getElementById("mathAnswer").value.trim();  
+  
+if(answer===""){  
+  
+alert("Please enter your answer.");  
+return;  
+  
+}  
+  
+checkGameAnswer(answer);  
+  
+};  
+  
+options.appendChild(btn);  
+  
+input.addEventListener(  
+"keydown",  
+function(event){  
+  
+if(event.key==="Enter"){  
+btn.click();  
+}  
+  
+}  
+);  
+  
+return;  
+  
+}  
+  
+  if(gameType==="captcha"){  
+  
+  const captchaChars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";  
+  let chosen="";  
+  
+  for(let i=0;i<7;i++){  
+  chosen+=captchaChars.charAt(  
+  Math.floor(Math.random()*captchaChars.length)  
+  );  
+  }  
+  
+  gameAnswer=chosen;    
+  
+question.innerHTML=
+"<strong style='font-size:32px;color:#ffd85a;letter-spacing:7px'>"+  
+chosen+  
+"</strong>";  
+  
+const input=document.createElement("input");  
+  
+input.placeholder="TYPE CAPTCHA";  
+input.style.textAlign="center";  
+input.style.textTransform="uppercase";  
+  
+options.appendChild(input);  
+  
+const btn=document.createElement("button");  
+  
+btn.textContent="ENTER ANSWER";  
+  
+btn.onclick=function(){  
+checkGameAnswer(input.value.trim().toUpperCase());  
+};  
+  
+options.appendChild(btn);  
+  
+input.addEventListener(  
+"keydown",  
+function(event){  
+  
+if(event.key==="Enter"){  
+btn.click();  
+}  
+  
+}  
+);  
+  
+return;  
+  
+}  
+  
+if(gameType==="color"){  
+  
+const colors=[  
+{emoji:"🔴",name:"RED"},  
+{emoji:"🔵",name:"BLUE"},  
+{emoji:"🟢",name:"GREEN"},  
+{emoji:"🟡",name:"YELLOW"},  
+{emoji:"🟣",name:"PURPLE"},  
+{emoji:"🟠",name:"ORANGE"}  
+];  
+  
+const chosen=  
+colors[Math.floor(Math.random()*colors.length)];  
+  
+gameAnswer=chosen.name;  
+  
+question.innerHTML=  
+"🌈 WHAT COLOR IS THIS?<br><br>"+  
+"<span style='font-size:70px'>"+  
+chosen.emoji+  
+"</span>";  
+  
+  const input=document.createElement("input");
+
+  input.className="game-answer-input";
+  input.placeholder="TYPE COLOR NAME";
+  input.style.textTransform="uppercase";
+  input.autocomplete="off";
+
+  options.appendChild(input);
+
+  const button=document.createElement("button");
+  button.textContent="ENTER ANSWER";
+  button.onclick=function(){
+  checkGameAnswer(input.value.trim().toUpperCase());
+  };
+
+  options.appendChild(button);
+
+  input.addEventListener("keydown",function(event){
+  if(event.key==="Enter")button.click();
+  });
+
+  return;  
+  
+}  
+  
+if(gameType==="animal"){  
+  
+const animals=[  
+{emoji:"🐶",answer:"DOG"},  
+{emoji:"🐱",answer:"CAT"},  
+{emoji:"🐰",answer:"RABBIT"},  
+{emoji:"🐼",answer:"PANDA"},  
+{emoji:"🦁",answer:"LION"},  
+{emoji:"🐯",answer:"TIGER"},  
+{emoji:"🐵",answer:"MONKEY"},  
+{emoji:"🐸",answer:"FROG"},  
+{emoji:"🐘",answer:"ELEPHANT"},  
+{emoji:"🦊",answer:"FOX"}  
+];  
+  
+const chosen=  
+animals[Math.floor(Math.random()*animals.length)];  
+  
+gameAnswer=chosen.answer;  
+  
+question.innerHTML=  
+"🐶 GUESS THE ANIMAL<br><br>"+  
+"<span style='font-size:80px'>"+  
+chosen.emoji+  
+"</span>";  
+  
+const choices=getGameChoices(animals,chosen,5);
+
+choices.forEach(function(animal){  
+  
+const button=document.createElement("button");  
+  
+button.className="game-option";  
+button.textContent=animal.answer;  
+  
+button.onclick=function(){  
+checkGameAnswer(animal.answer);  
+};  
+  
+options.appendChild(button);  
+  
+});  
+  
+return;  
+  
+}  
+  
+if(gameType==="logo"){  
+  
+const logos=[  
+{emoji:"🍎",answer:"APPLE"},  
+{emoji:"▶️",answer:"YOUTUBE"},  
+{emoji:"ⓕ",answer:"FACEBOOK"},  
+{emoji:"📸",answer:"INSTAGRAM"},  
+{emoji:"🎵",answer:"TIKTOK"},  
+{emoji:"🔍",answer:"GOOGLE"},  
+{emoji:"🛒",answer:"SHOPEE"},  
+{emoji:"✈️",answer:"TELEGRAM"}  
+];  
+  
+const chosen=  
+logos[Math.floor(Math.random()*logos.length)];  
+  
+gameAnswer=chosen.answer;  
+  
+question.innerHTML=  
+"🖼️ GUESS THE LOGO<br><br>"+  
+"<span style='font-size:75px'>"+  
+chosen.emoji+  
+"</span>";  
+  
+const choices=getGameChoices(logos,chosen,5);  
+  
+choices.forEach(function(logo){  
+  
+const button=document.createElement("button");  
+  
+button.className="game-option";  
+button.textContent=logo.answer;  
+  
+button.onclick=function(){  
+checkGameAnswer(logo.answer);  
+};  
+  
+options.appendChild(button);  
+  
+});  
+  
+}  
+
+if(gameType==="flag"){  
+  
+const flags=[  
+{emoji:"🇵🇭",answer:"PHILIPPINES"},  
+{emoji:"🇯🇵",answer:"JAPAN"},  
+{emoji:"🇰🇷",answer:"SOUTH KOREA"},  
+{emoji:"🇺🇸",answer:"UNITED STATES"},  
+{emoji:"🇬🇧",answer:"UNITED KINGDOM"},  
+{emoji:"🇨🇦",answer:"CANADA"},  
+{emoji:"🇧🇷",answer:"BRAZIL"},  
+{emoji:"🇮🇳",answer:"INDIA"},  
+{emoji:"🇫🇷",answer:"FRANCE"},  
+{emoji:"🇮🇹",answer:"ITALY"},  
+{emoji:"🇦🇺",answer:"AUSTRALIA"},  
+{emoji:"🇹🇭",answer:"THAILAND"}  
+];  
+  
+const chosen=flags[Math.floor(Math.random()*flags.length)];  
+gameAnswer=chosen.answer;  
+  
+question.innerHTML=  
+"🏳️ WHICH COUNTRY'S FLAG IS THIS?<br><br>"+  
+"<span style='font-size:90px'>"+chosen.emoji+"</span>";  
+  
+const choices=getGameChoices(flags,chosen,5);  
+choices.forEach(function(flag){  
+const button=document.createElement("button");  
+button.className="game-option";  
+button.textContent=flag.answer;  
+button.onclick=function(){checkGameAnswer(flag.answer);};  
+options.appendChild(button);  
+});  
+  
+}  
+  
+}  
+  
+/* =========================  
+   ANSWER  
+========================= */  
+  
+function checkGameAnswer(answer){
+
+if(!currentUser||gameAnswered)return;
+gameAnswered=true;
+  
+const correct=  
+String(answer).trim().toLowerCase()===  
+String(gameAnswer).trim().toLowerCase();  
+  
+const options=  
+document.getElementById("gameOptions");  
+  
+if(options){  
+  
+options.querySelectorAll("button,input")  
+.forEach(function(element){  
+element.disabled=true;  
+});  
+  
+}  
+  
+if(correct){  
+gameCorrect();  
+}else{  
+gameIncorrect();  
+}  
+  
+}  
+  
+function gameCorrect(){  
+  
+if(!currentUser)return;  
+  
+currentUser.points=  
+Number(currentUser.points||0)+1;  
+  
+syncCurrentUser();  
+  
+updateDashboard();  
+updateResultScreen(true,"");  
+  
+showScreen("gameResult");  
+  
+}  
+  
+function gameIncorrect(){  
+  
+updateResultScreen(false,gameAnswer);  
+  
+showScreen("gameResult");  
+  
+}  
+  
+function updateResultScreen(correct,answer){  
+  
+updatePointsUI();  
+  
+document.getElementById("resultUsername").textContent=  
+currentUser?currentUser.username:"{username}";  
+  
+const status=  
+document.getElementById("resultStatus");  
+  
+const earned=  
+document.getElementById("resultEarned");  
+  
+if(correct){  
+  
+status.className="correct";  
+status.textContent="✅ CORRECT";  
+  
+earned.innerHTML="<strong>+1 POINT</strong>";  
+  
+}else{  
+  
+status.className="incorrect";  
+status.textContent="❌ INCORRECT";  
+  
+earned.innerHTML=  
+"0 POINT<br><br>"+  
+"<span class='result-answer'>"+  
+"Correct Answer: "+  
+escapeHtml(answer)+  
+"</span>";  
+  
+}  
+  
+}  
+  
+/* =========================  
+   CALCULATOR  
+========================= */  
+  
+let calculatorExpression="";  
+  
+function toggleCalculator(){  
+  
+const box=  
+document.getElementById("calculatorBox");  
+  
+box.style.display=  
+box.style.display==="none"  
+?"block"  
+:"none";  
+  
+}  
+  
+function calculatorReset(){  
+  
+calculatorExpression="";  
+  
+const display=  
+document.getElementById("calculatorDisplay");  
+  
+if(display){  
+display.value="0";  
+}  
+  
+}  
+  
+function calcPress(value){  
+  
+calculatorExpression+=value;  
+  
+const display=  
+document.getElementById("calculatorDisplay");  
+  
+if(display){  
+display.value=  
+calculatorExpression||"0";  
+}  
+  
+}  
+  
+function calcClear(){  
+calculatorReset();  
+}  
+  
+function calcBackspace(){  
+  
+calculatorExpression=  
+calculatorExpression.slice(0,-1);  
+  
+const display=  
+document.getElementById("calculatorDisplay");  
+  
+if(display){  
+display.value=  
+calculatorExpression||"0";  
+}  
+  
+}  
+  
+function calcEquals(){  
+  
+const display=  
+document.getElementById("calculatorDisplay");  
+  
+if(!calculatorExpression)return;  
+  
+try{  
+  
+const expression=  
+calculatorExpression  
+.replace(/×/g,"*")  
+.replace(/÷/g,"/");  
+  
+if(!/^[0-9+\-*/().\s]+$/.test(expression)){  
+throw new Error("Invalid");  
+}  
+  
+const answer=  
+Function(  
+'"use strict";return ('+  
+expression+  
+')'  
+)();  
+  
+if(  
+typeof answer!=="number"||  
+!Number.isFinite(answer)  
+){  
+throw new Error("Invalid");  
+}  
+  
+display.value=String(answer);  
+calculatorExpression=String(answer);  
+  
+}catch(error){  
+  
+display.value="Error";  
+calculatorExpression="";  
+  
+}  
+  
+}  
+  
+/* =========================  
+   ADMIN LOGIN  
+========================= */  
+  
+function adminLogin(){  
+  
+const username=  
+document.getElementById("adminUsername").value.trim();  
+  
+const password=  
+document.getElementById("adminPassword").value;  
+  
+const ADMIN_USERNAME=  
+"adminnuvinaearninglearningacademy@local.com";  
+  
+const ADMIN_PASSWORD=  
+"Adminnuvina123456789";  
+  
+if(  
+username===ADMIN_USERNAME &&  
+password===ADMIN_PASSWORD  
+){  
+  
+document.getElementById("adminUsername").value="";  
+document.getElementById("adminPassword").value="";  
+  
+renderAdminUsers();  
+showScreen("adminPanel");  
+  
+}else{  
+  
+alert("Invalid admin username or password.");  
+  
+}  
+  
+}  
+  
+/* =========================  
+   ADMIN USERS  
+========================= */  
+  
+function renderAdminUsers(){  
+  
+const container=  
+document.getElementById("adminUsers");  
+  
+const searchInput=  
+document.getElementById("adminSearchUsername");  
+  
+if(!container)return;  
+  
+const search=  
+searchInput  
+?searchInput.value.trim().toLowerCase()  
+:"";  
+  
+container.innerHTML="";  
+  
+const filteredUsers=  
+users.filter(function(user){  
+  
+return String(user.username||"")  
+.toLowerCase().includes(search)  
+||  
+String(user.userId||"")  
+.toLowerCase().includes(search)  
+||  
+String(user.name||"")  
+.toLowerCase().includes(search)  
+||  
+String(user.upline||"")  
+.toLowerCase().includes(search);  
+  
+});  
+  
+if(filteredUsers.length===0){  
+  
+container.innerHTML=  
+'<div class="notice center">'+  
+'No username or USER_ID found.'+  
+'</div>';  
+  
+return;  
+  
+}  
+  
+filteredUsers.forEach(function(user){  
+  
+const realIndex=  
+users.findIndex(function(u){  
+return u.id===user.id;  
+});  
+  
+const box=document.createElement("div");  
+  
+box.className="user-box";  
+  
+box.innerHTML=`  
+  
+<div class="admin-user-details">
+<div class="admin-user-detail"><strong>Full Name:</strong><span>${escapeHtml(user.name)}</span></div>
+<div class="admin-user-detail"><strong>Username:</strong><span>${escapeHtml(user.username)}</span></div>
+<div class="admin-user-detail"><strong>Upline USER_ID:</strong><span>${escapeHtml(user.upline||"-")}</span></div>
+<div class="admin-user-detail"><strong>Contact:</strong><span>${escapeHtml(user.contact)}</span></div>
+<div class="admin-user-detail"><strong>Email:</strong><span>${escapeHtml(user.email)}</span></div>
+<div class="admin-user-detail"><strong>Points:</strong><span>${Number(user.points||0)}</span></div>
+<div class="admin-user-detail"><strong>Balance:</strong><span>₱${(Number(user.points||0)*PHP_PER_POINT).toFixed(2)}</span></div>
+<div class="admin-user-detail"><strong>Invite Balance:</strong><span>₱${getAdminInviteBalancePHP(user).toFixed(2)}</span></div>
+<div class="admin-user-detail"><strong>Status:</strong>  
+  
+<span class="status ${  
+user.status==="Activated"  
+?"activated"  
+:"pending"  
+}">  
+  
+${escapeHtml(user.status)}  
+  
+</span>
+</div>
+</div>
+
+${getAdminPayoutMarkup(user)}
+
+<hr>  
+  
+${  
+user.status==="Pending"  
+?  
+`  
+<button onclick="activateUser(${realIndex})">  
+✅ ACTIVATE USER  
+</button>  
+`  
+:  
+`  
+<div class="notice success-notice center">  
+✅ ACCOUNT ACTIVATED  
+</div>  
+`  
+}  
+  
+<input  
+id="editPoints_${realIndex}"  
+type="number"  
+placeholder="Edit Points"  
+>  
+  
+<input  
+id="editPHP_${realIndex}"  
+type="number"  
+placeholder="Edit Balance ₱"  
+>  
+  
+<button onclick="editUserBalance(${realIndex})">  
+✏️ EDIT BALANCE  
+</button>  
+  
+<input  
+id="withdrawPoints_${realIndex}"  
+type="number"  
+placeholder="Withdrawal Points"  
+>  
+  
+<input  
+id="withdrawPHP_${realIndex}"  
+type="number"  
+placeholder="Withdrawal Balance ₱"  
+>  
+  
+<button onclick="withdrawUserBalance(${realIndex})">  
+💸 WITHDRAW BALANCE  
+</button>  
+  
+<button  
+class="danger"  
+onclick="deleteUser(${realIndex})"  
+>  
+🗑️ DELETE USER  
+</button>  
+  
+`;  
+  
+container.appendChild(box);  
+  
+});  
+  
+}  
+  
+/* =========================  
+   ADMIN INVITE BALANCE  
+========================= */  
+  
+function getAdminInviteBalancePHP(user){  
+  
+const totalInvites=  
+users.filter(function(member){  
+  
+return String(member.upline||"").toLowerCase()===  
+String(user.userId||"").toLowerCase();  
+  
+}).length;  
+  
+const grossPoints=  
+totalInvites*  
+INVITE_REWARD_POINTS;  
+  
+const withdrawnPoints=  
+Number(user.inviteWithdrawnPoints||0);  
+  
+const availablePoints=  
+Math.max(  
+0,  
+grossPoints-withdrawnPoints  
+);  
+  
+return availablePoints*PHP_PER_POINT;  
+  
+}  
+  
+/* =========================  
+   ACTIVATE  
+========================= */  
+  
+function activateUser(index){  
+  
+if(!users[index])return;  
+  
+users[index].status="Activated";  
+users[index].points=50;  
+  
+if(typeof users[index].inviteWithdrawnPoints!=="number"){  
+users[index].inviteWithdrawnPoints=0;  
+}  
+  
+saveUsers();  
+  
+const details=  
+document.getElementById(  
+"activationSuccessDetails"  
+);  
+  
+if(details){  
+  
+details.innerHTML=  
+"Successfully activated, congrats 😊"+  
+"<br><br>"+  
+"<strong>USER_ID:</strong> "+  
+escapeHtml(users[index].userId)+  
+"<br>"+  
+"<strong>Username:</strong> "+  
+escapeHtml(users[index].username)+  
+"<br><br>"+  
+"Welcome bonus: <strong>+50 POINTS</strong>";  
+  
+}  
+  
+showScreen("activationSuccess");  
+  
+}  
+  
+/* =========================  
+   EDIT BALANCE  
+========================= */  
+  
+function editUserBalance(index){  
+  
+if(!users[index])return;  
+  
+const pointsInput=  
+document.getElementById("editPoints_"+index);  
+  
+const phpInput=  
+document.getElementById("editPHP_"+index);  
+  
+const pointsValue=pointsInput.value.trim();  
+const phpValue=phpInput.value.trim();  
+  
+if(pointsValue===""&&phpValue===""){  
+  
+alert("Enter Points or Balance ₱.");  
+return;  
+  
+}  
+  
+let newPoints;  
+  
+if(pointsValue!==""){  
+  
+newPoints=Number(pointsValue);  
+  
+}else{  
+  
+newPoints=Number(phpValue)/PHP_PER_POINT;  
+  
+}  
+  
+if(!Number.isFinite(newPoints)||newPoints<0){  
+  
+alert("Invalid balance.");  
+return;  
+  
+}  
+  
+newPoints=Math.floor(newPoints);  
+  
+users[index].points=newPoints;  
+  
+saveUsers();  
+  
+alert(  
+"Balance successfully updated.\n\n"+  
+"USER_ID: "+users[index].userId+  
+"\nPoints: "+newPoints+  
+"\nBalance: ₱"+  
+(newPoints*PHP_PER_POINT).toFixed(2)  
+);  
+  
+renderAdminUsers();  
+  
+}  
+  
+/* =========================  
+   ADMIN WITHDRAW  
+========================= */  
+  
+function withdrawUserBalance(index){  
+  
+if(!users[index])return;  
+  
+const pointsInput=  
+document.getElementById("withdrawPoints_"+index);  
+  
+const phpInput=  
+document.getElementById("withdrawPHP_"+index);  
+  
+const pointsValue=pointsInput.value.trim();  
+const phpValue=phpInput.value.trim();  
+  
+if(pointsValue===""&&phpValue===""){  
+  
+alert(  
+"Enter Withdrawal Points or Withdrawal Balance ₱."  
+);  
+  
+return;  
+  
+}  
+  
+let withdrawPoints;  
+  
+if(pointsValue!==""){  
+  
+withdrawPoints=Number(pointsValue);  
+  
+}else{  
+  
+withdrawPoints=  
+Number(phpValue)/PHP_PER_POINT;  
+  
+}  
+  
+if(  
+!Number.isFinite(withdrawPoints)||  
+withdrawPoints<=0  
+){  
+  
+alert("Invalid withdrawal amount.");  
+return;  
+  
+}  
+  
+withdrawPoints=Math.floor(withdrawPoints);  
+  
+const currentPoints=  
+Number(users[index].points||0);  
+  
+if(withdrawPoints>currentPoints){  
+  
+alert(  
+"Insufficient balance.\n\n"+  
+"Current Points: "+currentPoints+  
+"\nCurrent Balance: ₱"+  
+(currentPoints*PHP_PER_POINT).toFixed(2)  
+);  
+  
+return;  
+  
+}  
+  
+users[index].points=  
+currentPoints-withdrawPoints;  
+  
+saveUsers();  
+  
+alert(  
+"Withdrawal successfully processed.\n\n"+  
+"USER_ID: "+users[index].userId+  
+"\nWithdrawn Points: "+withdrawPoints+  
+"\nWithdrawn Balance: ₱"+  
+(withdrawPoints*PHP_PER_POINT).toFixed(2)+  
+"\n\nRemaining Points: "+users[index].points+  
+"\nRemaining Balance: ₱"+  
+(users[index].points*PHP_PER_POINT).toFixed(2)  
+);  
+  
+renderAdminUsers();  
+  
+}  
+  
+/* =========================  
+   DELETE USER  
+========================= */  
+  
+function deleteUser(index){  
+  
+if(!users[index])return;  
+  
+const username=users[index].username;  
+const userId=users[index].userId;  
+  
+const confirmDelete=  
+confirm(  
+"Delete this user?\n\n"+  
+"USER_ID: "+userId+  
+"\nUsername: "+username+  
+"\n\nThis cannot be undone."  
+);  
+  
+if(!confirmDelete)return;  
+  
+users.splice(index,1);  
+  
+saveUsers();  
+  
+alert("User deleted successfully.");  
+  
+renderAdminUsers();  
+  
+}  
+  
+/* =====================================================  
+   FORGOT PASSWORD  
+===================================================== */  
+  
+function normalizePHPhone(value){  
+  
+let v=  
+String(value||"").replace(/[\s\-()]/g,"");  
+  
+if(/^09\d{9}$/.test(v)){  
+return "+63"+v.slice(1);  
+}  
+  
+if(/^9\d{9}$/.test(v)){  
+return "+63"+v;  
+}  
+  
+if(/^\+639\d{9}$/.test(v)){  
+return v;  
+}  
+  
+return "";  
+  
+}  
+  
+function maskEmail(email){  
+  
+const parts=  
+String(email||"").split("@");  
+  
+if(parts.length!==2){  
+return email;  
+}  
+  
+const name=parts[0];  
+const domain=parts[1];  
+  
+let masked;  
+  
+if(name.length<=2){  
+masked=name.charAt(0)+"***";  
+}else{  
+masked=name.slice(0,2)+"***";  
+}  
+  
+return masked+"@"+domain;  
+  
+}  
+  
+function maskPhone(phone){  
+  
+const normalized=  
+normalizePHPhone(phone);  
+  
+if(!normalized){  
+return phone;  
+}  
+  
+return normalized.slice(0,5)+  
+"******"+  
+normalized.slice(-3);  
+  
+}  
+  
+function updateForgotChannelUI(){  
+  
+const selected=  
+document.querySelector(  
+'input[name="resetChannel"]:checked'  
+);  
+  
+const channel=  
+selected?selected.value:"email";  
+  
+const input=  
+document.getElementById("forgotIdentifier");  
+  
+const hint=  
+document.getElementById("forgotIdentifierHint");  
+  
+if(!input||!hint)return;  
+  
+if(channel==="phone"){  
+  
+input.placeholder="Phone Number (+63)";  
+  
+hint.textContent=  
+"Example: +639123456789 or 09123456789";  
+  
+}else{  
+  
+input.placeholder="Enter Email / Gmail";  
+  
+hint.textContent=  
+"Example: yourname@gmail.com";  
+  
+}  
+  
+}  
+  
+function findUserForReset(channel,value){  
+  
+if(channel==="email"){  
+  
+const email=  
+value.trim().toLowerCase();  
+  
+return users.find(function(user){  
+  
+return String(user.email||"")  
+.trim()  
+.toLowerCase()===email;  
+  
+})||null;  
+  
+}  
+  
+const phone=  
+normalizePHPhone(value);  
+  
+if(!phone){  
+return null;  
+}  
+  
+return users.find(function(user){  
+  
+return normalizePHPhone(user.contact||"")===phone;  
+  
+})||null;  
+  
+}  
+  
+function openForgotPassword(){  
+  
+resetForgotState();  
+showScreen("forgot");  
+  
+}  
+  
+function resetForgotState(){  
+  
+resetUser=null;  
+resetChannel="";  
+resetDestination="";  
+resetOtp="";  
+resetOtpExpires=0;  
+  
+if(resetOtpTimerInterval){  
+  
+clearInterval(resetOtpTimerInterval);  
+resetOtpTimerInterval=null;  
+  
+}  
+  
+[  
+"forgotIdentifier",  
+"forgotOtp",  
+"forgotNewPassword",  
+"forgotConfirmPassword"  
+].forEach(function(id){  
+  
+const el=document.getElementById(id);  
+  
+if(el)el.value="";  
+  
+});  
+  
+const demoBox=  
+document.getElementById("demoOtpBox");  
+  
+if(demoBox){  
+demoBox.innerHTML="";  
+}  
+  
+const destination=  
+document.getElementById("forgotOtpDestination");  
+  
+if(destination){  
+destination.innerHTML="";  
+}  
+  
+const timer=  
+document.getElementById("forgotOtpTimer");  
+  
+if(timer){  
+timer.textContent="";  
+}  
+  
+showForgotStep(1);  
+updateForgotChannelUI();  
+  
+}  
+  
+function showForgotStep(step){  
+  
+const step1=  
+document.getElementById("forgotStep1");  
+  
+const step2=  
+document.getElementById("forgotStep2");  
+  
+const step3=  
+document.getElementById("forgotStep3");  
+  
+if(step1){  
+step1.style.display=  
+step===1?"block":"none";  
+}  
+  
+if(step2){  
+step2.style.display=  
+step===2?"block":"none";  
+}  
+  
+if(step3){  
+step3.style.display=  
+step===3?"block":"none";  
+}  
+  
+if(step===2){  
+startForgotOtpTimer();  
+}  
+  
+}  
+  
+function startForgotOtp(){  
+  
+const selected=  
+document.querySelector(  
+'input[name="resetChannel"]:checked'  
+);  
+  
+const channel=  
+selected?selected.value:"email";  
+  
+const raw=  
+document.getElementById(  
+"forgotIdentifier"  
+).value.trim();  
+  
+if(channel==="email"){  
+  
+if(  
+!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw)  
+){  
+  
+alert(  
+"Please enter a valid Gmail / Email address."  
+);  
+  
+return;  
+  
+}  
+  
+}  
+  
+if(channel==="phone"){  
+  
+if(!normalizePHPhone(raw)){  
+  
+alert(  
+"Please enter a valid Philippines phone number."  
+);  
+  
+return;  
+  
+}  
+  
+}  
+  
+const user=  
+findUserForReset(channel,raw);  
+  
+if(!user){  
+  
+alert(  
+"No registered account was found."  
+);  
+  
+return;  
+  
+}  
+  
+resetUser=user;  
+resetChannel=channel;  
+  
+resetDestination=  
+channel==="email"  
+?maskEmail(user.email)  
+:maskPhone(user.contact);  
+  
+resetOtp=  
+String(  
+Math.floor(100000+Math.random()*900000)  
+);  
+  
+resetOtpExpires=  
+Date.now()+5*60*1000;  
+  
+const destinationBox=  
+document.getElementById(  
+"forgotOtpDestination"  
+);  
+  
+destinationBox.innerHTML=  
+"Demo verification for: <strong>"+  
+escapeHtml(resetDestination)+  
+"</strong>";  
+  
+document.getElementById(  
+"demoOtpBox"  
+).innerHTML=  
+"🧪 <strong>DEMO OTP:</strong> "+  
+"<span>"+  
+resetOtp+  
+"</span>"+  
+"<br>"+  
+"<small>Browser-only demo.</small>";  
+  
+document.getElementById(  
+"forgotOtp"  
+).value="";  
+  
+showForgotStep(2);  
+  
+}  
+  
+function resendForgotOtp(){  
+  
+if(!resetUser){  
+  
+showForgotStep(1);  
+return;  
+  
+}  
+  
+resetOtp=  
+String(  
+Math.floor(100000+Math.random()*900000)  
+);  
+  
+resetOtpExpires=  
+Date.now()+5*60*1000;  
+  
+document.getElementById(  
+"demoOtpBox"  
+).innerHTML=  
+"🧪 <strong>DEMO OTP:</strong> "+  
+"<span>"+  
+resetOtp+  
+"</span>";  
+  
+document.getElementById(  
+"forgotOtp"  
+).value="";  
+  
+startForgotOtpTimer();  
+  
+alert(  
+"🔄 NEW DEMO OTP GENERATED!"  
+);  
+  
+}  
+  
+function startForgotOtpTimer(){  
+  
+if(resetOtpTimerInterval){  
+  
+clearInterval(resetOtpTimerInterval);  
+resetOtpTimerInterval=null;  
+  
+}  
+  
+const timer=  
+document.getElementById(  
+"forgotOtpTimer"  
+);  
+  
+if(!timer)return;  
+  
+function update(){  
+  
+const remaining=  
+Math.max(  
+0,  
+resetOtpExpires-Date.now()  
+);  
+  
+if(remaining<=0){  
+  
+timer.textContent=  
+"⏰ OTP EXPIRED.";  
+  
+clearInterval(resetOtpTimerInterval);  
+resetOtpTimerInterval=null;  
+  
+return;  
+  
+}  
+  
+const minutes=  
+Math.floor(remaining/60000);  
+  
+const seconds=  
+Math.floor(  
+(remaining%60000)/1000  
+);  
+  
+timer.textContent=  
+"OTP EXPIRES IN: "+  
+String(minutes).padStart(2,"0")+  
+":"+  
+String(seconds).padStart(2,"0");  
+  
+}  
+  
+update();  
+  
+resetOtpTimerInterval=  
+setInterval(update,1000);  
+  
+}  
+  
+function verifyForgotOtp(){  
+  
+if(!resetUser||!resetOtp){  
+  
+alert("Please request an OTP first.");  
+return;  
+  
+}  
+  
+if(Date.now()>resetOtpExpires){  
+  
+alert(  
+"OTP expired.\n\nPlease tap RESEND OTP."  
+);  
+  
+return;  
+  
+}  
+  
+const code=  
+document.getElementById(  
+"forgotOtp"  
+).value.trim();  
+  
+if(!/^\d{6}$/.test(code)){  
+  
+alert("Enter the 6-digit OTP.");  
+return;  
+  
+}  
+  
+if(code!==resetOtp){  
+  
+alert("❌ INVALID OTP");  
+return;  
+  
+}  
+  
+if(resetOtpTimerInterval){  
+  
+clearInterval(resetOtpTimerInterval);  
+resetOtpTimerInterval=null;  
+  
+}  
+  
+showForgotStep(3);  
+  
+}  
+  
+function resetForgotPassword(){  
+  
+if(!resetUser){  
+  
+alert(  
+"Reset session expired."  
+);  
+  
+showForgotStep(1);  
+return;  
+  
+}  
+  
+const newPassword=  
+document.getElementById(  
+"forgotNewPassword"  
+).value;  
+  
+const confirmPassword=  
+document.getElementById(  
+"forgotConfirmPassword"  
+).value;  
+  
+if(newPassword.length<4){  
+  
+alert(  
+"New password must be at least 4 characters."  
+);  
+  
+return;  
+  
+}  
+  
+if(newPassword!==confirmPassword){  
+  
+alert("Passwords do not match.");  
+return;  
+  
+}  
+  
+resetUser.password=newPassword;  
+  
+const index=  
+users.findIndex(function(user){  
+  
+return user.id===resetUser.id;  
+  
+});  
+  
+if(index!==-1){  
+  
+users[index].password=newPassword;  
+  
+}  
+  
+saveUsers();  
+  
+alert(  
+"🔐 PASSWORD RESET SUCCESSFUL!\n\n"+  
+"You can now login using your new password."  
+);  
+  
+resetForgotState();  
+  
+showScreen("login");  
+  
+}  
+  
+/* =========================  
+   AUTO REFERRAL  
+========================= */  
+  
+window.addEventListener(  
+"load",  
+function(){  
+  
+const referral=readReferral();  
+  
+if(referral){  
+openSignup();  
+}  
+  
+});  
+  
+</script>  </body>  
+</html>
